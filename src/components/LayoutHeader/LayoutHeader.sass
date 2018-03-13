@@ -1,0 +1,285 @@
+@import '../../assets/sass/base.sass';
+
+.header
+  &__container
+    @include breakpoint-down(w768)
+      height: 17rem
+    &.fixed
+      position: fixed
+      left: 0
+      top: 0
+      z-index: 20
+      padding-bottom: 10rem
+      width: 100%
+      height: 100%
+      // background: $tangaroa url(/static/img/bg_header.svg) center center no-repeat
+      background-size: cover
+      @include breakpoint-down(w768)
+        padding-bottom: 0
+
+  &__share
+    display: flex
+    align-items: center
+    position: absolute
+    left: 0
+    padding-left: 10rem
+    width: 100%
+    bottom: 3rem
+
+    @include breakpoint-down(w768)
+      // position: static
+      padding-top: 2rem
+      padding-left: 2rem
+      flex-flow: row wrap
+
+    @include breakpoint-down(w480)
+      padding-left: 0
+      padding-top: 5rem
+
+    &-title
+      padding-right: 2rem
+      @include breakpoint-down(w768)
+        width: 100%
+        text-align: center
+        margin-bottom: 2rem
+
+  &__socials
+    @include breakpoint-down(w768)
+      width: 100%
+      padding-bottom: 2rem
+      text-align: center
+    .white
+      margin: 0 2rem
+      @include breakpoint-down(w768)
+        text-align: center
+        margin: 0 1rem
+      &:hover
+        // color: $science_blue
+        opacity: 1
+
+  &__btns
+    padding-right: calc((100vw - 1200px)/2 + 2rem)
+    @include breakpoint-down(w1200)
+      padding-right: 2rem
+
+  &__menu
+    padding-left: 9.5rem
+    padding-top: 2rem
+    max-height: calc(100% - 14rem)
+    display: inline-block
+
+    @include breakpoint-down(w768)
+      padding-left: 0
+      max-height: 100%
+      display: block
+      text-align: center
+
+    @include breakpoint-down(w480)
+      padding-top: 5rem
+
+    &-nav
+      margin-bottom: 2rem
+      font-size: 2.6rem
+      font-weight: bold
+      color: white
+      cursor: pointer
+      &:hover
+        color: denim
+      // @include breakpoint-downH(500px)
+      //   margin-bottom: 0.5vh
+      // @include breakpoint-downH(550px)
+      //   margin-bottom: 1.5vh
+
+  &__info,
+  &__nav
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    align-items: stretch
+    color: white
+
+    @include breakpoint-down(w480)
+      flex-flow: row wrap
+      justify-content: space-between
+
+  &__nav
+    padding: 1rem 0
+    justify-content: space-between
+    align-items: center
+    @include breakpoint-down(w991)
+      position: relative
+      z-index: 2
+      padding: 1rem 0
+
+
+  &__info
+    position: relative
+    transition: all .2s ease
+    min-height: 7.2rem
+    @include breakpoint-down(w480)
+      // background-color: $tangaroa
+
+  &__burger
+    &-wrap
+      height: auto
+    &-menu
+      width: 25px
+      height: 22px
+      position: relative
+      transform: rotate(0deg)
+      transition: .5s ease-in-out
+      cursor: pointer
+
+      &.__white
+        background-color: transparent
+        span
+          background-color: white
+
+      @include breakpoint-down(w480)
+        background-color: transparent
+
+      span
+        display: block
+        position: absolute
+        height: 4px
+        width: 100%
+        // background: $science_blue
+        border-radius: 9px
+        opacity: 1
+        left: 0
+        transform: rotate(0deg)
+        transition: .25s ease-in-out
+
+  &__logo
+    margin: 0 4rem
+    display: flex
+    max-width: 9.6rem
+    align-items: center
+    @include breakpoint-down(w480)
+      display: none
+
+    img
+      max-width: 100%
+
+    @include breakpoint-down(w480)
+      margin: 0 2rem
+    &.--mobile
+      display: none
+      @include breakpoint-down(w480)
+        display: block
+        position: absolute
+        top: 9.5rem
+        left: 50%
+        margin: 0
+        max-width: 15rem
+        z-index: 1
+        transform: translate(-50%, 0)
+  &__locale
+    position: relative
+    font-size: 1.4rem
+    transition: all .2s ease
+
+    @include breakpoint-down(w480)
+      margin-left: 0
+
+.locale
+  &__selected
+    width: 40px
+    height: 40px
+    background-color: #0040D0
+    line-height: 40px
+    text-align: center
+    cursor: pointer
+    position: relative
+    font-size: 1.5rem
+    font-weight: bold
+
+  &__list
+    padding-left: 25px
+    list-style-type none
+    &-item
+      margin-bottom: 1rem
+      a
+        cursor: pointer
+        font-size: 1.5rem
+        color: #130073
+        font-weight: bold
+        text-decoration: none
+        &.router-link-active
+          color: white
+
+  &__wrap
+    position: absolute
+    right: 100%
+    top: 1rem
+    padding-top: 1rem
+
+    width: 150px
+    height: 100vh
+
+    background-color: #0040D0
+    transition: all .2s ease
+
+    z-index: 3
+
+.header__locale--active
+  transform: translateX(149px)
+.locale__wrap--active
+  transform: translateX(150px)
+
+.header__info--sticked
+  position: fixed
+  width: 100vw
+  top: 0
+  z-index: 99
+
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: #03216a
+    z-index: -1
+
+.header__container.fixed
+  .header__info--sticked
+    position: relative
+    &::before
+      content: none
+
+.header__burger-wrap
+  width: 57px
+  display: flex
+  align-items: center
+  justify-content: center
+  // background-color: #021032locales
+
+.header__burger-menu span:nth-child(1)
+  top: 0px;
+
+.header__burger-menu span:nth-child(2),
+.header__burger-menu span:nth-child(3)
+  top: 9px;
+  width: 60%;
+
+.header__burger-menu span:nth-child(4)
+  top: 18px;
+
+.header__burger-menu.open span:nth-child(1)
+  top: 9px;
+  width: 0%;
+  left: 50%;
+
+.header__burger-menu.open span:nth-child(2)
+  transform: rotate(45deg);
+  width: 100%;
+
+.header__burger-menu.open span:nth-child(3)
+  transform: rotate(-45deg);
+  width: 100%;
+
+.header__burger-menu.open span:nth-child(4)
+  top: 9px;
+  width: 0%;
+  left: 50%;
+
