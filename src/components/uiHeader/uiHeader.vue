@@ -1,41 +1,71 @@
 <template lang="pug">
 
-  .header__container(:class="{fixed: menuOpened}")
-    h1 hello header
-    .header__info.d-flex(:class="{ 'header__info--sticked' : stickNav }")
+  .header__container(:class="{ 'header__container--fixed': menuOpened }")
 
-      .header__burger-wrap
-        .header__burger-menu(@click="toggleMenu", :class="{ '__white open' : menuOpened }")
-          span
-          span
-          span
-          span
-        span {{locales}}
+    .header__info.d-flex(
+      :class="{ 'header__info--sticked' : stickNav }"
+      :style="{ backgroundColor: header.bg }"
+    )
+
+      .header__burger-wrap(:style="{ backgroundColor: header.burger.bg }")
+
+        .header__burger-menu(
+          @click="toggleMenu"
+          :class="{ '__white open' : menuOpened }"
+        )
+          span(
+            v-for="i in 4"
+            :style=`{
+              backgroundColor: menuOpened
+              ? header.burger.line.active
+              : header.burger.line.default
+            }`
+          )
 
       .header__logo
-        img(:src="headerLogo", alt="")
+        img(
+          alt=""
+          :src="header.logo.url"
+        )
+
+      slot(name="headerContent")
 
       //- CryptoPriceList(ref="coinsList", :style="{opacity: menuOpened ? '0': '1' }")
 
     .header__nav
-      .locale__container(v-click-outside="hideLangsWrap")
+      .locale__container(v-click-outside="closeLocaleList")
+
         .locale__wrap#langs(:class="{ 'locale__wrap--active' : showLocales }")
+
           ul.locale__list(v-show="showLocales")
-            li.locale__list-item(v-for="lang in locales" :class="{active: lang === locale}" @click="setLangManually(lang)")
-              a(v-html="lang" :href="`/${lang}/`")
+
+            li.locale__list-item(
+              v-for="(val, key) in locale.list"
+              :class="{active: key === locale}"
+              @click="setLangManually(key)"
+            )
+              a(v-html="val.full" :href="`/${key}/`") 
 
         .header__locale(:class="{'header__lang--active': showLocales}")
-          //- .locale__selected(@click="changeLang($event)" :class="{active: showLocales}" v-html="locales[locale].short")
 
-      .header__btns(v-show="!menuOpened")
-        a.btn.__small.disabled.__orang( href="#" v-html="")
-        a.btn.__small( :href="`https://app.icex.ch/${locale}/auth/signin`" v-html="")
-        a.btn.__small.__border( :href="`https://app.icex.ch/${locale}/auth/signup`" v-html="")
+          .locale__selected(
+            :class="{active: showLocales}"
+            v-html="locale.active"
+            @click="toggleLocales($event)"
+          )
+
+        slot(name="headerBtns")
+
+      //- .header__btns(v-show="!menuOpened")
+      //-   a.btn.__small.disabled.__orang( href="#" v-html="")
+      //-   a.btn.__small( :href="`https://app.icex.ch/${locale}/auth/signin`" v-html="")
+      //-   a.btn.__small.__border( :href="`https://app.icex.ch/${locale}/auth/signup`" v-html="")
 
 
     template(v-if="menuOpened")
       .header__logo.--mobile
         //- img(src="/img/logo.svg", :alt="")
+
       ul.header__menu
         //- li.header__menu-nav(@click="scrollTo(21, true, 0)") {{ $lang['sec21'].label }}
         //- li.header__menu-nav(v-for="nav in anchorsIndexes", @click="scrollTo(nav, true, -70)") {{ $lang['sec' + nav].label }}
@@ -60,45 +90,20 @@
     name: 'LayoutHeader',
 
     props: {
-      headerLogo: {
-        type: String,
-        required: true
-      },
-      locales: {
+      locale: {
         type: Object,
-        required: false,
-        default: function () {
-          return {
-            en: {
-              full: 'English',
-              short: 'Eng',
-              desc: 'eng'
-            },
-            ru: {
-              full: 'Русский',
-              short: 'Rus',
-              desc: 'rus'
-            },
-            ko: {
-              full: '한국어',
-              short: '한',
-              desc: 'kor'
-            }
-          }
-        }
+        required: true,
       },
-      navItems: {
-        type: Array,
-        required: false
-      }
+      header: {
+        type: Object,
+        required: true,
+      },
     },
 
     data () {
       return {
-        anchorsIndexes: [2, 3, 4, 5, 6, 7, 8],
+        showLocales: true,
         menuOpened: false,
-        locale: 'en',
-        showLocales: false,
         stickNav: false
       }
     },
@@ -110,16 +115,15 @@
     methods: {
 
       setLangManually (lang) {
-        this.setLang(lang)
+        // this.setLang(lang)
         this.$refs.coinsList.getCoinsData()
-        // location.reload()
       },
 
-      changeLang () {
+      toggleLocales () {
         this.showLocales = !this.showLocales
       },
 
-      hideLangsWrap () {
+      closeLocaleList () {
         this.showLocales = false
       },
 
@@ -152,5 +156,5 @@
 </script>
 
 <style lang="sass">
-  @import "./LayoutHeader.sass";
+  @import "./uiHeader.sass";
 </style>
