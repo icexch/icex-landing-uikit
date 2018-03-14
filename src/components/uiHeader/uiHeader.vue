@@ -5,7 +5,7 @@
     :style="showMenu ? { 'background': styles.header.bgFixed }: ''"
   )
 
-    .header__info.d-flex(
+    .header__info(
       :class="{ 'header__info--sticked' : stickNav }"
       :style="showMenu ? '': { backgroundColor: styles.header.bg }"
     )
@@ -67,7 +67,7 @@
             @click="toggleLocales($event)"
           )
 
-        slot(name="headerBtns")
+      slot(name="headerBtns")
 
 
     template(v-if="showMenu")

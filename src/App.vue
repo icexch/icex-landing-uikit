@@ -10,14 +10,17 @@
           headerBtns - signin signup btn 
           headerContent - coins slider or something else
 
-    uiHeader(
+    ui-header(
       :data="headerData"
       :styles="headerStyle"
+      @clickbtn="emitBtnClick"
     )
       .header__content(slot="headerContent")
         span Header content here
 
       .header__btns(slot="headerBtns")
+        ui-btn(:styles="btnStyles" :data="btnData")
+
         a.btn.__small.disabled.__orang( href="#" v-html="")
         a.btn.__small( :href="`$(appLink)/signin`" v-html="")
         a.btn.__small.__border( :href="`$(appLink)/signup`" v-html="")
@@ -26,6 +29,7 @@
 
 <script>
   import uiHeader from './components/uiHeader/uiHeader.vue'
+  import uiBtn from './components/uiBtn/uiBtn.vue'
   import { mapState, mapGetters } from 'vuex';
   export default {
     name: 'app',
@@ -36,6 +40,7 @@
 
     components: {
       uiHeader,
+      uiBtn,
     },
 
     computed: {
@@ -88,8 +93,30 @@
         }
       },
 
+
+      btnStyles() {
+        return {
+          color: 'white',
+          background: this.colors.science_blue,
+          borderColor: 'white',
+        }
+      },
+
+      btnData() {
+        return {
+          type: 'btn',
+          text: 'Btn text',
+        }
+      },
+
       appLink() {
         return `https://app.icex.ch/${locale.active}/auth`
+      }
+    },
+
+    methods: {
+      emitBtnClick() {
+        console.log('click emit btn');
       }
     }
   };
