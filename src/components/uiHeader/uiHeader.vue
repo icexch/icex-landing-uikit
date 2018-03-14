@@ -1,77 +1,87 @@
 <template lang="pug">
 
-  .header__container(:class="{ 'header__container--fixed': menuOpened }")
+  .header__container(
+    :class="{ 'header__container--fixed': showMenu }"
+    :style="showMenu ? { 'background': styles.header.bgFixed }: ''"
+  )
 
     .header__info.d-flex(
       :class="{ 'header__info--sticked' : stickNav }"
-      :style="{ backgroundColor: header.bg }"
+      :style="showMenu ? '': { backgroundColor: styles.header.bg }"
     )
 
-      .header__burger-wrap(:style="{ backgroundColor: header.burger.bg }")
+      .header__burger-wrap(:style="{ backgroundColor: styles.burger.bg }")
 
         .header__burger-menu(
           @click="toggleMenu"
-          :class="{ '__white open' : menuOpened }"
+          :class="{ '__white open' : showMenu }"
         )
           span(
             v-for="i in 4"
             :style=`{
-              backgroundColor: menuOpened
-              ? header.burger.line.active
-              : header.burger.line.default
+              backgroundColor: showMenu
+              ? styles.burger.line.active
+              : styles.burger.line.default
             }`
           )
 
       .header__logo
         img(
           alt=""
-          :src="header.logo.url"
+          :src="data.logo.url"
         )
 
       slot(name="headerContent")
 
-      //- CryptoPriceList(ref="coinsList", :style="{opacity: menuOpened ? '0': '1' }")
 
     .header__nav
-      .locale__container(v-click-outside="closeLocaleList")
+      .header__locale-container(v-click-outside="closeLocaleList")
 
-        .locale__wrap#langs(:class="{ 'locale__wrap--active' : showLocales }")
+        .header__locale-wrap(
+          :class="{ 'header__locale-wrap--active' : showLocales }"
+          :style="{ backgroundColor: styles.locale.bg }"
+        )
 
-          ul.locale__list(v-show="showLocales")
+          ul.header__locale-list(v-show="showLocales")
 
-            li.locale__list-item(
-              v-for="(val, key) in locale.list"
-              :class="{active: key === locale}"
+            li.header__locale-list-item(
+              v-for="(val, key) in data.locale.list"
+              :class="{active: key === data.locale.active}"
               @click="setLangManually(key)"
             )
-              a(v-html="val.full" :href="`/${key}/`") 
+              a(
+                v-html="val.full"
+                :href="`/${key}/`"
+                :style="{ color: styles.locale.color}"
+              )
 
-        .header__locale(:class="{'header__lang--active': showLocales}")
+        .header__locale(:class="{'header__locale--active': showLocales}")
 
-          .locale__selected(
-            :class="{active: showLocales}"
-            v-html="locale.active"
+          .header__locale-selected(
+            :class="{ active: showLocales }"
+            :style=`{ 
+              backgroundColor: styles.locale.bg,
+              color: styles.locale.color
+            }`
+            v-html="data.locale.active"
             @click="toggleLocales($event)"
           )
 
         slot(name="headerBtns")
 
-      //- .header__btns(v-show="!menuOpened")
-      //-   a.btn.__small.disabled.__orang( href="#" v-html="")
-      //-   a.btn.__small( :href="`https://app.icex.ch/${locale}/auth/signin`" v-html="")
-      //-   a.btn.__small.__border( :href="`https://app.icex.ch/${locale}/auth/signup`" v-html="")
 
-
-    template(v-if="menuOpened")
-      .header__logo.--mobile
-        //- img(src="/img/logo.svg", :alt="")
+    template(v-if="showMenu")
+      .header__logo.header__logo--mobile
+        img(
+          alt=""
+          :src="data.logo.url"
+        )
 
       ul.header__menu
-        //- li.header__menu-nav(@click="scrollTo(21, true, 0)") {{ $lang['sec21'].label }}
-        //- li.header__menu-nav(v-for="nav in anchorsIndexes", @click="scrollTo(nav, true, -70)") {{ $lang['sec' + nav].label }}
+        li.header__menu-nav(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)") {{ nav }}
 
       .header__share
-        span.header__share-title.fs16.fw_bold.white(v-html="")
+        span.header__share-title(v-html="data.share.title")
         .header__socials
           a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").socicon-facebook.fs40.white
           a(href="https://vk.com/icexch"              target="_blank").socicon-vkontakte.fs40.white
@@ -90,11 +100,11 @@
     name: 'LayoutHeader',
 
     props: {
-      locale: {
+      data: {
         type: Object,
         required: true,
       },
-      header: {
+      styles: {
         type: Object,
         required: true,
       },
@@ -103,7 +113,7 @@
     data () {
       return {
         showLocales: true,
-        menuOpened: false,
+        showMenu: false,
         stickNav: false
       }
     },
@@ -128,9 +138,9 @@
       },
 
       toggleMenu () {
-        this.menuOpened = !this.menuOpened
+        this.showMenu = !this.showMenu
 
-        document.documentElement.style.overflow = this.menuOpened
+        document.documentElement.style.overflow = this.showMenu
           ? 'hidden'
           : 'initial'
       },
