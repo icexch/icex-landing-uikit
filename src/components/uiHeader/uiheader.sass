@@ -1,9 +1,9 @@
-@import '../../assets/sass/base.sass';
-
+@import "~bootstrap/scss/bootstrap.scss";
+@import '../../assets/sass/mixins.sass';
 .header__container
   background: normal
   @include breakpoint-down(w768)
-    height: 17rem
+    height: 8.5rem
 
 .header__content
   color: black
@@ -13,7 +13,7 @@
   left: 0
   top: 0
   z-index: 20
-  padding-bottom: 10rem
+  padding-bottom: 5rem
   width: 100%
   height: 100%
   background-size: cover !important
@@ -31,8 +31,8 @@
   height: auto
 
 .header__burger-menu
-  width: 2.5rem
-  height: 2.2rem
+  width: 1.25rem
+  height: 1.1rem
   position: relative
   transform: rotate(0deg)
   transition: .5s ease-in-out
@@ -50,7 +50,7 @@
     position: absolute
     height: 4px
     width: 100%
-    border-radius: .9rem
+    border-radius: .45rem
     opacity: 1
     left: 0
     transform: rotate(0deg)
@@ -64,16 +64,16 @@
 
     &:nth-child(2),
     &:nth-child(3)
-      top: .9rem
+      top: .45rem
       width: 60%
 
     &:nth-child(4)
-      top: 1.8rem
+      top: .9rem
 
   &.open
     span
       &:nth-child(1)
-        top: .9rem
+        top: .45rem
         width: 0%
         left: 50%
 
@@ -86,14 +86,14 @@
         width: 100%
 
       &:nth-child(4)
-        top: .9rem
+        top: .45rem
         width: 0%
         left: 50%
 
 .header__logo
-  margin: 0 4rem
+  margin: 0 2rem
   display: flex
-  max-width: 9.6rem
+  max-width: 4.8rem
   align-items: center
 
   @include breakpoint-down(w480)
@@ -103,7 +103,7 @@
     max-width: 100%
 
     @include breakpoint-down(w480)
-      margin: 0 2rem
+      margin: 0 1rem
 
 .header__logo--mobile
   display: none
@@ -111,23 +111,23 @@
   @include breakpoint-down(w480)
     display: block
     position: absolute
-    top: 9.5rem
+    top: 4.75rem
     left: 50%
     margin: 0
-    max-width: 15rem
+    max-width: 7.5rem
     z-index: 1
     transform: translate(-50%, 0)
 
 .header__burger-wrap
-  width: 5.7rem
+  width: 2.85rem
   display: flex
   align-items: center
   justify-content: center
 
 .header__menu
-  padding-left: 9.5rem
-  padding-top: 2rem
-  max-height: calc(100% - 14rem)
+  padding-left: 4.75rem
+  padding-top: 1rem
+  max-height: calc(100% - 7rem)
   display: inline-block
 
   @include breakpoint-down(w768)
@@ -137,11 +137,11 @@
     text-align: center
 
   @include breakpoint-down(w480)
-    padding-top: 5rem
+    padding-top: 2.5rem
 
 .header__menu-nav
-  margin-bottom: 2rem
-  font-size: 2.6rem
+  margin-bottom: 1rem
+  font-size: 1.3rem
   font-weight: bold
   color: white
   cursor: pointer
@@ -167,45 +167,45 @@
     justify-content: space-between
 
 .header__nav
-  padding: 1rem 0
+  padding: .5rem 0
   justify-content: space-between
   align-items: center
   @include breakpoint-down(w991)
     position: relative
     z-index: 2
-    padding: 1rem 0
+    padding: .5rem 0
 
 .header__info
   position: relative
   transition: all .2s ease
-  min-height: 7.2rem
+  min-height: 3.6rem
 
 .header__locale
   position: relative
-  font-size: 1.4rem
+  font-size: .7rem
   transition: all .2s ease
 
   @include breakpoint-down(w480)
     margin-left: 0
 
 .header__locale-selected
-  width: 4rem
-  height: 4rem
-  line-height: 4rem
+  width: 2rem
+  height: 2rem
+  line-height: 2rem
   text-align: center
   cursor: pointer
   position: relative
-  font-size: 1.5rem
+  font-size: .75rem
   font-weight: bold
 
 .header__locale-list
-  padding-left: 2.5rem
+  padding-left: 1.25rem
   list-style-type: none
   &-item
-    margin-bottom: 1rem
+    margin-bottom: .5rem
     a
       cursor: pointer
-      font-size: 1.5rem
+      font-size: .75rem
       color: #130073
       font-weight: bold
       text-decoration: none
@@ -215,7 +215,7 @@
 .header__locale-wrap
   position: absolute
   right: 100%
-  padding-top: 1rem
+  padding-top: .5rem
 
   width: 150px
   height: 100vh
@@ -250,46 +250,46 @@
   align-items: center
   position: absolute
   left: 0
-  padding-left: 10rem
+  padding-left: 5rem
   width: 100%
-  bottom: 3rem
+  bottom: 1.5rem
 
   @include breakpoint-down(w768)
-    padding-top: 2rem
-    padding-left: 2rem
+    padding-top: 1rem
+    padding-left: 1rem
     flex-flow: row wrap
 
   @include breakpoint-down(w480)
     padding-left: 0
-    padding-top: 5rem
+    padding-top: 2.5rem
 
 
 .header__share-title
-  font-size: 1.6rem
+  font-size: .8rem
   font-width: bold
   color: white
-  padding-right: 2rem
+  padding-right: 1rem
 
   @include breakpoint-down(w768)
     width: 100%
     text-align: center
-    margin-bottom: 2rem
+    margin-bottom: 1rem
 
 
 .header__socials
   @include breakpoint-down(w768)
     width: 100%
-    padding-bottom: 2rem
+    padding-bottom: 1rem
     text-align: center
   .white
-    margin: 0 2rem
+    margin: 0 1rem
     @include breakpoint-down(w768)
       text-align: center
-      margin: 0 1rem
+      margin: 0 .5rem
     &:hover
       opacity: 1
 
 .header__btns
-  padding-right: calc((100vw - 1200px)/2 + 2rem)
+  padding-right: calc((100vw - 1200px)/2 + 1rem)
   @include breakpoint-down(w1200)
-    padding-right: 2rem
+    padding-right: 1rem

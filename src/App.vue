@@ -1,45 +1,51 @@
 <template lang="pug">
   #app
-    //- 
-      uiHeader has
-        props: 
-          data - transmit data (locales, menu items ), 
-          styles - transmit styles
+    uiSection(:data="sectionData")
+      div(slot="sectionContent")
+        //- 
+          uiHeader has
+            props: 
+              data - transmit data (locales, menu items ), 
 
-        slots 
-          headerBtns - signin signup btn 
-          headerContent - coins slider or something else
+            slots 
+              headerBtns - signin signup btn 
+              headerContent - coins slider or something else
 
-    ui-header(
-      :data="headerData"
-      :styles="headerStyle"
-      @clickbtn="emitBtnClick"
-    )
-      .header__content(slot="headerContent")
-        span Header content here
+        ui-header(
+          :data="headerData"
+          :styles="headerStyle"
+          @clickbtn="emitBtnClick"
+        )
+          .header__content(slot="headerContent")
+            span Header content here
 
-      .header__btns(slot="headerBtns")
-        ui-btn(:styles="btnStyles" :data="btnData")
+          .header__btns(slot="headerBtns")
+            ui-link(type="link" text="Link text" link="#")
+            ui-link(type="primary-outline" text="Primary link text" link="#" clickbtn="emitBtnClick")
+            //- ui-btn(type="outline-primary" text="Primary btn text")
 
-        a.btn.__small.disabled.__orang( href="#" v-html="")
-        a.btn.__small( :href="`$(appLink)/signin`" v-html="")
-        a.btn.__small.__border( :href="`$(appLink)/signup`" v-html="")
 
 </template>
 
 <script>
+  import uiSection from './components/uiSection/uiSection.vue'
   import uiHeader from './components/uiHeader/uiHeader.vue'
   import uiBtn from './components/uiBtn/uiBtn.vue'
+  import uiLink from './components/uiLink/uiLink.vue'
+
   import { mapState, mapGetters } from 'vuex';
   export default {
     name: 'app',
+
     data() {
       return {
       }
     },
 
     components: {
+      uiSection,
       uiHeader,
+      uiLink,
       uiBtn,
     },
 
@@ -52,6 +58,12 @@
         // return locale list and active locale
         locale: 'locale'
       }),
+
+      sectionData() {
+        return {
+          label: 'Menu item 1',
+        }
+      },
 
       headerStyle() {
         return {
@@ -93,18 +105,9 @@
         }
       },
 
-
-      btnStyles() {
-        return {
-          color: 'white',
-          background: this.colors.science_blue,
-          borderColor: 'white',
-        }
-      },
-
       btnData() {
         return {
-          type: 'btn',
+          type: 'primary',
           text: 'Btn text',
         }
       },
@@ -121,3 +124,12 @@
     }
   };
 </script>
+
+<style lang="sass">
+
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins";
+  @import "~bootstrap/scss/grid";
+
+</style>

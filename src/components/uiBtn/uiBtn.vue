@@ -1,24 +1,11 @@
 <template lang="pug">
 
-  button(
-    v-if="data.type === 'btn'"
-    class="btn"
-    :style="styles"
-    @click="clickBtn($event)"
-  )
-    slot(name="before")
-    span(v-html="data.text")
-    slot(name="after")
-
   a(
-    v-else
-    class="btn"
-    :href="data.href"
-    :style="styles"
+    :class="['btn', `btn-${type}`]"
     @click="clickBtn($event)"
   )
     slot(name="before")
-    span(v-html="data.text")
+    span(v-html="text")
     slot(name="after")
 
 </template>
@@ -29,12 +16,12 @@
     mixins: [],
 
     props: {
-      styles: {
-        type: Object,
-        required: true,
+      type: {
+        type: String,
+        required: true
       },
-      data: {
-        type: Object,
+      text: {
+        type: String,
         required: true
       },
     },

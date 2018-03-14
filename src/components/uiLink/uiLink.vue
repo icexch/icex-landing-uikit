@@ -1,28 +1,47 @@
 <template lang="pug">
 
-  .section__container
-    .section__label(v-html="data.label")
-
-    slot(name="sectionContent")
+  a(
+    :href="link"
+    :class="['btn', `btn-${type}`]"
+    @click="clickBtn($event)"
+  )
+    slot(name="before")
+    span(v-html="text")
+    slot(name="after")
 
 </template>
 
 <script>
   export default {
-    name: 'boilerplate',
+    name: 'uiLink',
     mixins: [],
+
     props: {
-      data: {
-        type: Object,
+      type: {
+        type: String,
+        required: true,
+      },
+      link: {
+        type: String,
+        required: false,
+      },
+      text: {
+        type: String,
         required: true,
       },
     },
+
     data() {
       return {};
     },
+
     components: {},
     watch: {},
-    methods: {},
+    methods: {
+      clickBtn($emit) {
+        return this.$emit('clickbtn');
+      },
+    },
     computed: {},
     fetch() {},
     beforeCreate() {},
@@ -40,5 +59,5 @@
 </script>
 
 <style lang="sass">
-  @import "./uiSection.sass";
+  @import "./uiLink.sass";
 </style>
