@@ -152,6 +152,8 @@ $header-menu-color: white !default
 
   background: $header-content-bg
   color: $header-content-color
+  @include media-breakpoint-down(xs)
+    width: calc(100% - 3.5rem);
 
 
 .header__locale-wrap
