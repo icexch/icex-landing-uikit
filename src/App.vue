@@ -13,10 +13,9 @@
 
         ui-header(
           :data="headerData"
-          :styles="headerStyle"
           @clickbtn="emitBtnClick"
         )
-          .header__content(slot="headerContent")
+          template(slot="headerContent")
             span Header content here
 
           .header__btns(slot="headerBtns")
@@ -65,26 +64,6 @@
         }
       },
 
-      headerStyle() {
-        return {
-          burger: {
-            bg: this.colors.tangaroa,
-            line: {
-              default: this.colors.science_blue,
-              active: 'white'
-            },
-          },
-          locale: {
-            bg: this.colors.science_blue,
-            color: 'white',
-          },
-          header: {
-            bg: this.colors.athens_gray_light,
-            bgFixed: this.colors.tangaroa + ' url(img/bg_header.svg) center center no-repeat'
-          }
-        }
-      },
-
       headerData() {
         return {
           locale: this.locale,
@@ -127,9 +106,16 @@
 
 <style lang="sass">
 
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins";
-  @import "~bootstrap/scss/grid";
+  $font-family-base: 'Montserrat'
+  $primary: #021032
+  $secondary: #0b50cd
+
+  // $header-burger-bg: red !global
+  // $header-burger-color: white !global
+
+  @import "~bootstrap/scss/bootstrap";
+  @import "./components/uiHeader/uiheader.sass";
+
+
 
 </style>

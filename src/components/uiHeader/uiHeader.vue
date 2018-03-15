@@ -1,73 +1,52 @@
 <template lang="pug">
 
-  .header__container(
-    :class="{ 'header__container--fixed': showMenu }"
-    :style="showMenu ? { 'background': styles.header.bgFixed }: ''"
-  )
+  .header__container(:class="{ 'header__container--fixed': showMenu }")
+    .container-fluid
 
-    .header__info(
-      :class="{ 'header__info--sticked' : stickNav }"
-      :style="showMenu ? '': { backgroundColor: styles.header.bg }"
-    )
+      .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
+        .header__burger-wrap.col-auto
 
-      .header__burger-wrap(:style="{ backgroundColor: styles.burger.bg }")
+          .header__burger-menu(
+            @click="toggleMenu"
+            :class="{ 'header__burger-menu--open' : showMenu }"
+          )
+            span(v-for="i in 4")
 
-        .header__burger-menu(
-          @click="toggleMenu"
-          :class="{ '__white open' : showMenu }"
-        )
-          span(
-            v-for="i in 4"
-            :style=`{
-              backgroundColor: showMenu
-              ? styles.burger.line.active
-              : styles.burger.line.default
-            }`
+        .header__logo.col-auto
+          img(
+            alt=""
+            :src="data.logo.url"
           )
 
-      .header__logo
-        img(
-          alt=""
-          :src="data.logo.url"
-        )
+        .header__content.col-auto(v-if="!showMenu")
+          slot(name="headerContent")
 
-      slot(name="headerContent")
+      .header__nav.row.justify-content-between
+        .header__locale-container(v-click-outside="closeLocaleList")
 
+          .header__locale-wrap( :class="{ 'header__locale-wrap--active' : showLocales }")
 
-    .header__nav
-      .header__locale-container(v-click-outside="closeLocaleList")
+            ul.header__locale-list.list-unstyled(v-show="showLocales")
 
-        .header__locale-wrap(
-          :class="{ 'header__locale-wrap--active' : showLocales }"
-          :style="{ backgroundColor: styles.locale.bg }"
-        )
-
-          ul.header__locale-list(v-show="showLocales")
-
-            li.header__locale-list-item(
-              v-for="(val, key) in data.locale.list"
-              :class="{active: key === data.locale.active}"
-              @click="setLangManually(key)"
-            )
-              a(
-                v-html="val.full"
-                :href="`/${key}/`"
-                :style="{ color: styles.locale.color}"
+              li.header__locale-list-item(
+                v-for="(val, key) in data.locale.list"
+                :class="{active: key === data.locale.active}"
+                @click="setLangManually(key)"
               )
+                a(
+                  v-html="val.full"
+                  :href="`/${key}/`"
+                )
 
-        .header__locale(:class="{'header__locale--active': showLocales}")
+          .header__locale(:class="{'header__locale--active': showLocales}")
 
-          .header__locale-selected(
-            :class="{ active: showLocales }"
-            :style=`{ 
-              backgroundColor: styles.locale.bg,
-              color: styles.locale.color
-            }`
-            v-html="data.locale.active"
-            @click="toggleLocales($event)"
-          )
-
-      slot(name="headerBtns")
+            .header__locale-selected.text-white(
+              :class="{ active: showLocales }"
+              v-html="data.locale.list[data.locale.active].short"
+              @click="toggleLocales($event)"
+            )
+        template(v-if="!showMenu")
+          slot(name="headerBtns")
 
 
     template(v-if="showMenu")
@@ -77,17 +56,19 @@
           :src="data.logo.url"
         )
 
-      ul.header__menu
+      ul.header__menu.list-unstyled
         li.header__menu-nav(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)") {{ nav }}
 
       .header__share
-        span.header__share-title(v-html="data.share.title")
+        span.header__share-title
+          small(v-html="data.share.title")
+
         .header__socials
-          a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").socicon-facebook.fs40.white
-          a(href="https://vk.com/icexch"              target="_blank").socicon-vkontakte.fs40.white
-          a(href="https://www.instagram.com/icex.ch/" target="_blank").socicon-instagram.fs40.white
-          a(href="https://t.me/icexch"                target="_blank").socicon-telegram.fs40.white
-          a(href="https://twitter.com/icex_ch"        target="_blank").socicon-twitter.fs40.white
+          a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").socicon-facebook
+          a(href="https://vk.com/icexch"              target="_blank").socicon-vkontakte
+          a(href="https://www.instagram.com/icex.ch/" target="_blank").socicon-instagram
+          a(href="https://t.me/icexch"                target="_blank").socicon-telegram
+          a(href="https://twitter.com/icex_ch"        target="_blank").socicon-twitter
 
     .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
 
@@ -101,10 +82,6 @@
 
     props: {
       data: {
-        type: Object,
-        required: true,
-      },
-      styles: {
         type: Object,
         required: true,
       },
@@ -166,5 +143,4 @@
 </script>
 
 <style lang="sass">
-  @import "./uiHeader.sass";
 </style>
