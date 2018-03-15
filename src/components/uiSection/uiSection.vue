@@ -1,7 +1,7 @@
 <template lang="pug">
 
   .section__container(:class="data.container.classes")
-    .section__label(v-if="data.label.text" v-html="data.label.text" :class="data.label.classes")
+    .section__label.h5(v-if="data.label.text" v-html="data.label.text" :class="data.label.classes")
 
     slot(name="sectionContent")
 

@@ -5,12 +5,12 @@
         .row.justify-content-between
 
           .col-auto
-            .footer__logo
+            .footer__logo.mb-4
               img(:src="data.logo.url")
             .footer__email info@icex.ch
 
           .col-auto
-            .footer__social
+            .footer__social.d-flex
               ui-socials(
                 color="primary"
                 :multiline="true"
