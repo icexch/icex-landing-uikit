@@ -44,6 +44,7 @@
               v-html="data.locale.list[data.locale.active].short"
               @click="toggleLocales($event)"
             )
+
         template(v-if="!showMenu")
           slot(name="headerBtns")
 
@@ -60,15 +61,11 @@
           a(:href="`#section{index}`") {{ nav }}
 
       .header__share
-        span.header__share-title
-          small(v-html="data.share.title")
-
-        .header__socials
-          a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").h3.socicon-facebook
-          a(href="https://vk.com/icexch"              target="_blank").h3.socicon-vkontakte
-          a(href="https://www.instagram.com/icex.ch/" target="_blank").h3.socicon-instagram
-          a(href="https://t.me/icexch"                target="_blank").h3.socicon-telegram
-          a(href="https://twitter.com/icex_ch"        target="_blank").h3.socicon-twitter
+        ui-socials(
+          color="white"
+          :multiline="false"
+          :title="data.share.title"
+        )
 
     //- .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
 
@@ -76,6 +73,7 @@
 
 <script>
   import vClickOutside from 'v-click-outside'
+  import uiSocials from '../uiSocials/uiSocials.vue'
 
   export default {
     name: 'LayoutHeader',
@@ -93,6 +91,9 @@
         showMenu: false,
         stickNav: false
       }
+    },
+    components: {
+      uiSocials,
     },
 
     directives: {

@@ -98,7 +98,7 @@
           },
           share: {
             // chage with $t('header.share')
-            title: 'Follow us'
+            title: 'Follow us',
           },
           menu: [
             'Menu item 1',
@@ -112,6 +112,13 @@
 
       footerData() {
         return {
+          logo: {
+            url: 'img/logo_footer.svg',
+          },
+          share: {
+            // chage with $t('header.share')
+            title: 'Follow us',
+          },
         }
       },
 
@@ -140,6 +147,7 @@
   @import "~bootstrap/scss/bootstrap";
   @import "./components/uiHeader/uiHeader.sass";
   @import "./components/uiSection/uiSection.sass";
+  @import "./components/uiSocials/uiSocials.sass";
 
 
 
