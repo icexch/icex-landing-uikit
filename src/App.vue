@@ -20,7 +20,7 @@
 
           .header__btns(slot="headerBtns")
             ui-link(type="link" text="Link text" link="#")
-            ui-link(type="primary-outline" text="Primary link text" link="#" clickbtn="emitBtnClick")
+            ui-link(type="primary-outline" text="Primary link text" link="#" @clickbtn="emitBtnClick")
             //- ui-btn(type="outline-primary" text="Primary btn text")
 
 
@@ -84,13 +84,6 @@
         }
       },
 
-      btnData() {
-        return {
-          type: 'primary',
-          text: 'Btn text',
-        }
-      },
-
       appLink() {
         return `https://app.icex.ch/${locale.active}/auth`
       }
@@ -98,7 +91,6 @@
 
     methods: {
       emitBtnClick() {
-        console.log('click emit btn');
       }
     }
   };
