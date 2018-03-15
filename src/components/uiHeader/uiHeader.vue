@@ -57,18 +57,18 @@
         )
 
       ul.header__menu.list-unstyled
-        li.header__menu-nav(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)") {{ nav }}
+        li.header__menu-nav.h5(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)") {{ nav }}
 
       .header__share
         span.header__share-title
           small(v-html="data.share.title")
 
         .header__socials
-          a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").socicon-facebook
-          a(href="https://vk.com/icexch"              target="_blank").socicon-vkontakte
-          a(href="https://www.instagram.com/icex.ch/" target="_blank").socicon-instagram
-          a(href="https://t.me/icexch"                target="_blank").socicon-telegram
-          a(href="https://twitter.com/icex_ch"        target="_blank").socicon-twitter
+          a(href="https://www.facebook.com/ICEX.CH/"  target="_blank").h3.socicon-facebook
+          a(href="https://vk.com/icexch"              target="_blank").h3.socicon-vkontakte
+          a(href="https://www.instagram.com/icex.ch/" target="_blank").h3.socicon-instagram
+          a(href="https://t.me/icexch"                target="_blank").h3.socicon-telegram
+          a(href="https://twitter.com/icex_ch"        target="_blank").h3.socicon-twitter
 
     .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
 
