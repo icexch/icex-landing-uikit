@@ -31,7 +31,6 @@
               li.header__locale-list-item(
                 v-for="(val, key) in data.locale.list"
                 :class="{active: key === data.locale.active}"
-                @click="setLangManually(key)"
               )
                 a(
                   v-html="val.full"
@@ -57,7 +56,8 @@
         )
 
       ul.header__menu.list-unstyled
-        li.header__menu-nav.h5(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)") {{ nav }}
+        li.header__menu-nav.h5(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)")
+          a(:href="`#section{index}`") {{ nav }}
 
       .header__share
         span.header__share-title
@@ -70,7 +70,7 @@
           a(href="https://t.me/icexch"                target="_blank").h3.socicon-telegram
           a(href="https://twitter.com/icex_ch"        target="_blank").h3.socicon-twitter
 
-    .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
+    //- .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
 
 </template>
 
@@ -100,20 +100,21 @@
     },
 
     methods: {
-
-      setLangManually (lang) {
-        // this.setLang(lang)
-        this.$refs.coinsList.getCoinsData()
-      },
-
+      /*
+      show || hide locale list
+       */
       toggleLocales () {
         this.showLocales = !this.showLocales
       },
-
+      /*
+      hide locale list
+       */
       closeLocaleList () {
         this.showLocales = false
       },
-
+      /*
+      show || hide menu and disable scroll under menu
+       */
       toggleMenu () {
         this.showMenu = !this.showMenu
 
@@ -121,6 +122,13 @@
           ? 'hidden'
           : 'initial'
       },
+
+      /**
+       * Scroll to section
+       * @param  {Number} sec - Section id 
+       * @param  {Boolean} toggleMenu - hide menu after scoll to section if true
+       * @param  {Number} - offset before section
+       */
       scrollTo (sec, toggleMenu = true, offset) {
         this.$scrollTo('.section__container.__' + sec, 400, { offset: offset })
 
@@ -128,14 +136,18 @@
           this.toggleMenu()
         }
       },
-
+      /*
+      Stick header menu to top when scroll more than 100vh
+       */
       checkNavSticking () {
         this.stickNav = window.scrollY > window.innerHeight
       }
     },
+
     created () {
       window.addEventListener('scroll', this.checkNavSticking)
     },
+
     destroyed () {
       window.removeEventListener('scroll', this.checkNavSticking)
     }
