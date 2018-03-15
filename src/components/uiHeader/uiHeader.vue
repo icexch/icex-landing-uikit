@@ -89,7 +89,7 @@
 
     data () {
       return {
-        showLocales: true,
+        showLocales: false,
         showMenu: false,
         stickNav: false
       }

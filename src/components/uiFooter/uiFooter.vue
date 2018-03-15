@@ -1,22 +1,22 @@
 <template lang="pug">
-
-  .section__container(:class="data.container.classes")
-    .section__label(v-if="data.label.text" v-html="data.label.text" :class="data.label.classes")
-
-    slot(name="sectionContent")
-
+  .container-fluid
+    .row
+      .col-8.bg-info.p-5
+        .row
+          .col-6
+            .footer__logo
+              img
+          .col-6
+            .footer__socials
+        span title
+      .col-4.bg-primary.p-5
 </template>
 
 <script>
   export default {
-    name: 'boilerplate',
+    name: 'uiFooter',
     mixins: [],
-    props: {
-      data: {
-        type: Object,
-        required: true,
-      },
-    },
+    props: [],
     data() {
       return {};
     },
@@ -40,5 +40,5 @@
 </script>
 
 <style lang="sass">
-  // @import "./uiSection.sass";
+
 </style>

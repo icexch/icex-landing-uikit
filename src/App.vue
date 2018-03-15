@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    uiSection(:data="sectionData")
+    ui-section(:data="section1Data")
       div(slot="sectionContent")
         //- 
           uiHeader has
@@ -19,9 +19,16 @@
             span Header content here
 
           .header__btns(slot="headerBtns")
-            ui-link(type="link" text="Link text" link="#")
-            ui-link(type="primary-outline" text="Primary link text" link="#" @clickbtn="emitBtnClick")
+            ui-link(type="link" text="Sign in" :link="`${appLink}/signin`")
+            ui-link(type="primary-outline" text="Sign up" :link="`${appLink}/signup`" @clickbtn="emitBtnClick")
             //- ui-btn(type="outline-primary" text="Primary btn text")
+
+    ui-section(:data="section2Data")
+      div(slot="sectionContent")
+
+
+    ui-footer(:data="footerData")
+      div(slot="sectionContent")
 
 
 </template>
@@ -31,6 +38,7 @@
   import uiHeader from './components/uiHeader/uiHeader.vue'
   import uiBtn from './components/uiBtn/uiBtn.vue'
   import uiLink from './components/uiLink/uiLink.vue'
+  import uiFooter from './components/uiFooter/uiFooter.vue'
 
   import { mapState, mapGetters } from 'vuex';
   export default {
@@ -46,6 +54,7 @@
       uiHeader,
       uiLink,
       uiBtn,
+      uiFooter,
     },
 
     computed: {
@@ -58,9 +67,26 @@
         locale: 'locale'
       }),
 
-      sectionData() {
+      section1Data() {
         return {
-          label: 'Menu item 1',
+          label: {
+            text: '',
+            classes: ['text-warning', 'h4'],
+          },
+          container: {
+            classes: ['bg-info', 'section__cotnainer--fullheight'],
+          }
+        }
+      },
+      section2Data() {
+        return {
+          label: {
+            text: 'Next label text',
+            classes: ['text-info'],
+          },
+          container: {
+            classes: ['bg-bug', 'section__cotnainer--fullheight','bg-dark', 'pt-5', 'pb-5'],
+          }
         }
       },
 
@@ -84,8 +110,13 @@
         }
       },
 
+      footerData() {
+        return {
+        }
+      },
+
       appLink() {
-        return `https://app.icex.ch/${locale.active}/auth`
+        return `https://app.icex.ch/${this.locale.active}/auth`
       }
     },
 
@@ -101,12 +132,14 @@
   $font-family-base: 'Montserrat'
   $primary: #021032
   $secondary: #0b50cd
+  $info: #e7e9f1
 
   // $header-burger-bg: red !global
   // $header-burger-color: white !global
 
   @import "~bootstrap/scss/bootstrap";
-  @import "./components/uiHeader/uiheader.sass";
+  @import "./components/uiHeader/uiHeader.sass";
+  @import "./components/uiSection/uiSection.sass";
 
 
 
