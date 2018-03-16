@@ -1,9 +1,8 @@
 <template lang="pug">
   .container-fluid
-    .row
-      .col-8.bg-info.p-4.pl-5
-        .row.justify-content-between
-
+    .row.align-items-stretch
+      .col-8.bg-info.p-4.pl-5.pb-5
+        .row.justify-content-between.h-100
           .col-auto
             .footer__logo.mb-4
               img(:src="data.logo.url")
@@ -16,9 +15,10 @@
                 :multiline="true"
                 :title="data.share.title"
               )
+        .h6.mb-auto
+          small.text-muted © 2017 ICEX | Holygate Investments
 
       .col-4.bg-primary.p-4
-
         ui-form(:data="formData")
 </template>
 

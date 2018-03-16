@@ -8,6 +8,7 @@
 
     .form-group.mb-4
       textarea(:placeholder="data.placeholder.msg" row="5").custom-control
+
     .text-center
       ui-btn(type="primary" text="Send")
 

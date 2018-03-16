@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  a(
+  button(
     :class="['btn', `btn-${type}`]"
     @click="clickBtn($event)"
   )
