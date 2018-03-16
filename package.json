@@ -1,12 +1,14 @@
 {
   "name": "uikit",
   "version": "0.1.0",
-  "private": true,
+  "private": ,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "main": "src/components/index.js",
+  "description": "Icex LP uikit",
   "dependencies": {
     "bootstrap": "^4.0.0",
     "jquery": "^3.3.1",
