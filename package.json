@@ -1,7 +1,11 @@
 {
-  "name": "icex-langing-uikit",
+  "name": "icex-landing-uikit",
   "version": "0.1.0",
   "private": false,
+  "repository" : {
+    "type" : "git",
+    "url" : "httpshttps://github.com/icexch/icex-landing-uikit/://github.com/npm/npm.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
