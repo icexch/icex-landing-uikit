@@ -16,7 +16,15 @@
           @clickbtn="emitBtnClick"
         )
           template(slot="headerContent")
-            span Header content here
+            ui-slider(:sliderOptions="sliderOptions" :showSlider="true")
+              template(slot="slides" v-for="slide in sliderData")
+                div
+                  small {{ slide.name }}
+                  div
+                    small {{ slide.price.value }}
+                    span.currency__status(:class="slide.change.day.indexOf('-') !== -1 ? 'up' : 'down'")
+                    small.currency__change(:class="slide.change.day.indexOf('-') !== -1 ? 'up' : 'down'" v-html="slide.change.day")
+
 
           .header__btns(slot="headerBtns")
             ui-link(type="link" text="Sign in" :link="`${appLink}/signin`")
@@ -39,13 +47,108 @@
   import uiBtn from './components/uiBtn/uiBtn.vue'
   import uiLink from './components/uiLink/uiLink.vue'
   import uiFooter from './components/uiFooter/uiFooter.vue'
+  import uiSlider from './components/uiSlider/uiSlider.vue'
 
   import { mapState, mapGetters } from 'vuex';
+
   export default {
     name: 'app',
 
     data() {
       return {
+        sliderOptions: {
+          slidesToScroll: 1,
+          slidesToShow: 10,
+          infinite: true,
+          dots: false,
+          speed: 700,
+          responsive: [
+            {
+              breakpoint: 1800,
+              settings: {
+                slidesToShow: 10,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1600,
+              settings: {
+                slidesToShow: 9,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1480,
+              settings: {
+                slidesToShow: 7,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1240,
+              settings: {
+                slidesToShow: 6,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 1040,
+              settings: {
+                slidesToShow: 5,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 880,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 5,
+              },
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              },
+            },
+            {
+              breakpoint: 700,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 520,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              },
+            },
+            {
+              breakpoint: 460,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 360,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+              },
+            },
+          ],
+        },
       }
     },
 
@@ -55,11 +158,13 @@
       uiLink,
       uiBtn,
       uiFooter,
+      uiSlider,
     },
 
     computed: {
       ...mapState({
-        colors: state => state.glossary.colors
+        colors: state => state.glossary.colors,
+        sliderData: state => state.glossary.data.data,
       }),
 
       ...mapGetters({
@@ -149,7 +254,6 @@
   @import "./components/uiSection/uiSection.sass";
   @import "./components/uiSocials/uiSocials.sass";
   @import "./components/uiForm/uiForm.sass";
-
-
+  @import "./components/uiSlider/uiSlider.sass";
 
 </style>
