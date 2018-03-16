@@ -1,11 +1,4 @@
 @import "~slick-carousel/slick/slick.scss";
-// .hidden
-//   visibility: hidden
-//   height: 0
-//   overflow: hidden
-
-// .visible
-//   visibility: visible
 
 .slider__container
   position: relative
@@ -14,6 +7,7 @@
   max-width: 100%
   padding: 0
   margin: 0
+
   // padding: 2rem
   // padding-right: 4rem
   // background-color tangaroa
@@ -24,7 +18,8 @@
   //   padding-left: 0
 
   .slick-arrow
-
+    background-color: transparent
+    color: transparent
     &:hover
       opacity: 0.8
 
@@ -36,17 +31,19 @@
 
     &.slick-next
       position: absolute
-      right: -2.5rem
+      right: .5rem
       top: 0
       bottom: 0
+      margin: auto
       width: 20px
       height: 20px
       padding: 0
       border: 4px solid transparent
-      // border-top-color: cadet_blue
-      // border-right-color: cadet_blue
+      border-top-color: $secondary
+      border-right-color: $secondary
       transform: rotate(45deg)
-
+      &:focus
+        outline: none
       // +below(w480)
       //   width: 15px
       //   height: 15px
