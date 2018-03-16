@@ -1,7 +1,7 @@
 <template lang="pug">
   .container-fluid
     .row
-      .col-8.bg-info.p-5
+      .col-8.bg-info.p-4.pl-5
         .row.justify-content-between
 
           .col-auto
@@ -17,11 +17,14 @@
                 :title="data.share.title"
               )
 
-      .col-4.bg-primary.p-5
+      .col-4.bg-primary.p-4
+
+        ui-form(:data="formData")
 </template>
 
 <script>
   import uiSocials from '../uiSocials/uiSocials.vue'
+  import uiForm from '../uiForm/uiForm.vue'
   
   export default {
     name: 'uiFooter',
@@ -33,9 +36,18 @@
       },
     },
     data() {
-      return {};
+      return {
+        formData: {
+          placeholder: {
+            name: 'Name',
+            email: 'Email',
+            msg: 'Message',
+          },
+        },
+      };
     },
     components: {
+      uiForm,
       uiSocials,
     },
     watch: {},

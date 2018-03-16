@@ -28,7 +28,7 @@
 
 
     ui-footer(:data="footerData")
-      div(slot="sectionContent")
+      div(slot="footerForm")
 
 
 </template>
@@ -148,6 +148,7 @@
   @import "./components/uiHeader/uiHeader.sass";
   @import "./components/uiSection/uiSection.sass";
   @import "./components/uiSocials/uiSocials.sass";
+  @import "./components/uiForm/uiForm.sass";
 
 
 

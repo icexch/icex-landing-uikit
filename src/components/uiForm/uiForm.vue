@@ -1,18 +1,20 @@
 <template lang="pug">
+  form.mb-2
+    .form-group
+      input(type="text" :placeholder="data.placeholder.name").custom-control
 
-  .section__container(:class="data.container.classes")
+    .form-group
+      input(type="email" :placeholder="data.placeholder.email").custom-control
 
-    .section__label.h5(
-      v-if="data.label.text"
-      v-html="data.label.text"
-      :class="data.label.classes"
-    )
-
-    slot(name="sectionContent")
+    .form-group.mb-4
+      textarea(:placeholder="data.placeholder.msg" row="5").custom-control
+    .text-center
+      ui-btn(type="primary" text="Send")
 
 </template>
 
 <script>
+  import uiBtn from '../uiBtn/uiBtn.vue'
   export default {
     name: 'boilerplate',
     mixins: [],
@@ -25,7 +27,9 @@
     data() {
       return {};
     },
-    components: {},
+    components: {
+      uiBtn,
+    },
     watch: {},
     methods: {},
     computed: {},
@@ -45,5 +49,5 @@
 </script>
 
 <style lang="sass">
-  // @import "./uiSection.sass";
+
 </style>
