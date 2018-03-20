@@ -15,10 +15,10 @@
   // padding-right: 4rem
   // background-color tangaroa
 
-  // +below(w480)
-  //   width: calc(100% - 7.15rem)
-  //   padding: 2rem 1rem
-  //   padding-left: 0
+  @include media-breakpoint-down(xs)
+    width: calc(100% - 7.15rem)
+    padding: 2rem 1rem
+    padding-left: 0
 
   .slick-arrow
     background-color: transparent
@@ -46,12 +46,13 @@
       border-right-color: $secondary
       transform: rotate(45deg)
       &:focus
-        outline: none 
-      // +below(w480)
-      //   width: 15px
-      //   height: 15px
-      //   right: 0.5rem
-      //   border-width: 3px
+        outline: none
+
+      @include media-breakpoint-down(xs)
+        width: 15px
+        height: 15px
+        right: 0.5rem
+        border-width: 3px
 
 .currency__change
   &.down
