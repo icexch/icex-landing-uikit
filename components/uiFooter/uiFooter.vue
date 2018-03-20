@@ -19,7 +19,7 @@
           small.text-muted © 2017 ICEX | Holygate Investments
 
       .col-12.col-lg-4.order-md-1.order-lg-2.bg-primary.p-4
-        ui-form(:data="formData")
+        ui-form(:formData="formData")
 </template>
 
 <script>
