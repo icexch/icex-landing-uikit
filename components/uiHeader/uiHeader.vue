@@ -15,7 +15,7 @@
         .header__logo.col-auto
           img(
             alt=""
-            :src="data.logo.url"
+            :src="headerData.logo.url"
           )
 
         .header__content.col-auto(v-if="!showMenu")
@@ -29,8 +29,8 @@
             ul.header__locale-list.list-unstyled(v-show="showLocales")
 
               li.header__locale-list-item(
-                v-for="(val, key) in data.locale.list"
-                :class="{active: key === data.locale.active}"
+                v-for="(val, key) in headerData.locale.list"
+                :class="{active: key === headerData.locale.active}"
               )
                 a(
                   v-html="val.full"
@@ -41,7 +41,7 @@
 
             .header__locale-selected.text-white(
               :class="{ active: showLocales }"
-              v-html="data.locale.list[data.locale.active].short"
+              v-html="headerData.locale.list[headerData.locale.active].short"
               @click="toggleLocales($event)"
             )
 
@@ -53,18 +53,18 @@
       .header__logo.header__logo--mobile
         img(
           alt=""
-          :src="data.logo.url"
+          :src="headerData.logo.url"
         )
 
       ul.header__menu.list-unstyled
-        li.header__menu-nav.h5(v-for="(nav, index) in data.menu", @click="scrollTo(index, true, -70)")
+        li.header__menu-nav.h5(v-for="(nav, index) in headerData.menu", @click="scrollTo(index, true, -70)")
           a(:href="`#section{index}`") {{ nav }}
 
       .header__share
         ui-socials(
           color="white"
           :multiline="false"
-          :title="data.share.title"
+          :title="headerData.share.title"
         )
 
     //- .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
@@ -79,7 +79,7 @@
     name: 'LayoutHeader',
 
     props: {
-      data: {
+      headerData: {
         type: Object,
         required: true,
       },

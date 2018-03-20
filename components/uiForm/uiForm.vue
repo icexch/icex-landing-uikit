@@ -1,13 +1,13 @@
 <template lang="pug">
   form.mb-2
     .form-group
-      input(type="text" :placeholder="data.placeholder.name").custom-control
+      input(type="text" :placeholder="formData.placeholder.name").custom-control
 
     .form-group
-      input(type="email" :placeholder="data.placeholder.email").custom-control
+      input(type="email" :placeholder="formData.placeholder.email").custom-control
 
     .form-group.mb-4
-      textarea(:placeholder="data.placeholder.msg" row="5").custom-control
+      textarea(:placeholder="formData.placeholder.msg" row="5").custom-control
 
     .text-center
       ui-btn(type="primary" text="Send")
@@ -20,7 +20,7 @@
     name: 'boilerplate',
     mixins: [],
     props: {
-      data: {
+      formData: {
         type: Object,
         required: true,
       },

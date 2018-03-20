@@ -1,27 +1,20 @@
 <template lang="pug">
 
-  ul.slider__container(:class="showSlider ? 'visible' : 'invisible'")
-    slick(ref="slickHeader" :options="sliderOptions")
-      slot(name="slides")
+  no-ssr
+    flickity(ref="flickity", :options="flickityOptions")
+      slot(name="sliderContent")
 
 </template>
 
 <script>
-  const Slick = process.BROWSER_BUILD ? require('vue-slick') : null
-
   export default {
 
     name: 'uiSlider',
 
     props: {
-      sliderOptions: {
+      flickityOptions: {
         type: Object,
         required: true,
-      },
-      showSlider: {
-        type: Boolean,
-        required: true,
-        default: false,
       },
     },
 
@@ -32,12 +25,13 @@
     },
 
     components: {
-      Slick,
     },
 
-    // mounted () {
-    //   this.$refs.slickHeader.destroy();
-    // },
+    mounted () {
+      setTimeout(() => {
+        this.$refs.flickity.resize();
+      }, 1000);
+    },
 
   }
 </script>

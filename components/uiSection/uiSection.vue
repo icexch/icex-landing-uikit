@@ -1,11 +1,11 @@
 <template lang="pug">
 
-  .section__container(:class="data.container.classes")
+  .section__container(:class="sectionData.container.classes")
 
     .section__label.h5(
-      v-if="data.label.text"
-      v-html="data.label.text"
-      :class="data.label.classes"
+      v-if="sectionData.label.text"
+      v-html="sectionData.label.text"
+      :class="sectionData.label.classes"
     )
 
     slot(name="sectionContent")
@@ -17,7 +17,7 @@
     name: 'boilerplate',
     mixins: [],
     props: {
-      data: {
+      sectionData: {
         type: Object,
         required: true,
       },
