@@ -4,7 +4,7 @@ import uiForm from './components/uiForm';
 import uiHeader from './components/uiHeader';
 import uiLink from './components/uiLink';
 import uiSection from './components/uiSection';
-import uiSlider from './components/uiSlider';
+// import uiSlider from './components/uiSlider';
 import uiSocials from './components/uiSocials';
 
 const uiKit = {
@@ -14,7 +14,7 @@ const uiKit = {
     Vue.component('uiHeader', uiHeader);
     Vue.component('uiLink', uiLink);
     Vue.component('uiSection', uiSection);
-    Vue.component('uiSlider', uiSlider);
+    // Vue.component('uiSlider', uiSlider);
     Vue.component('uiSocials', uiSocials);
   }
 };
