@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import uiFooter from './uiFooter';
-import uiForm from './uiForm';
-import uiHeader from './uiHeader';
-import uiLink from './uiLink';
-import uiSection from './uiSection';
-import uiSlider from './uiSlider';
-import uiSocials from './uiSocials';
+import uiFooter from './components/uiFooter';
+import uiForm from './components/uiForm';
+import uiHeader from './components/uiHeader';
+import uiLink from './components/uiLink';
+import uiSection from './components/uiSection';
+import uiSlider from './components/uiSlider';
+import uiSocials from './components/uiSocials';
 
 const uiKit = {
   install(Vue) {

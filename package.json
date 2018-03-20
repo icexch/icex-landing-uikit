@@ -1,6 +1,6 @@
 {
   "name": "icex-landing-uikit",
-  "version": "0.1.5",
+  "version": "0.1.3",
   "private": false,
   "author": {
     "name": "andskur",
@@ -15,7 +15,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "main": "src/components",
+  "main": "src/components/index.js",
   "description": "Icex LP uikit",
   "dependencies": {
     "bootstrap": "^4.0.0",
