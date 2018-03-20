@@ -73,3 +73,16 @@ Vue.use(uiKit);
 //install v-click-outside plugin
 ```
 
+### Colors
+Include code below to page styles
+```scss
+  $font-family-base: 'Montserrat' // or any custom font
+  // reinit default bootstrap variables
+  $primary: #021032 
+  $secondary: #0b50cd
+  $info: #e7e9f1
+
+  @import "~bootstrap/scss/bootstrap.scss";
+  // add uiKit styles
+  @import "~icex-landing-uikit/index.sass";
+```
