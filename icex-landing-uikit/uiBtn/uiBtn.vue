@@ -54,5 +54,5 @@
 </script>
 
 <style lang="sass">
-  @import "./uiBtn.sass";
+  // @import "./uiBtn.sass";
 </style>

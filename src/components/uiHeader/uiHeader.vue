@@ -22,9 +22,7 @@
           slot(name="headerContent")
 
       .header__nav.row.justify-content-between
-        .header__locale-container()
-          //- .header__locale-container(v-click-outside="closeLocaleList")
-
+        .header__locale-container(v-click-outside="closeLocaleList")
           .header__locale-wrap( :class="{ 'header__locale-wrap--active' : showLocales }")
 
             ul.header__locale-list.list-unstyled(v-show="showLocales")
@@ -73,7 +71,6 @@
 </template>
 
 <script>
-  // import vClickOutside from 'v-click-outside'
   import uiSocials from '../uiSocials/uiSocials.vue'
 
   export default {
@@ -98,7 +95,6 @@
     },
 
     directives: {
-      // clickOutside: vClickOutside.directive
     },
 
     methods: {

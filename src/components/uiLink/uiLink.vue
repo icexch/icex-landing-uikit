@@ -59,5 +59,5 @@
 </script>
 
 <style lang="sass">
-  @import "./uiLink.sass";
+  // @import "./uiLink.sass";
 </style>
