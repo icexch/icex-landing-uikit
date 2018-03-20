@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Slick from 'vue-slick'
+  const Slick = process.BROWSER_BUILD ? require('vue-slick') : null
 
   export default {
 
@@ -28,7 +28,6 @@
     data () {
       return {
         sliderList: {},
-        
       }
     },
 
