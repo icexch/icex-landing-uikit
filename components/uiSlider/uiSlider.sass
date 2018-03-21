@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-.flickity-enabled.is-draggable
+.flickity-enabled
   width: 100%
   overflow: hidden
 
@@ -19,7 +19,6 @@
     width: 33.33%
   @include media-breakpoint-down(sm)
     width: 50%
-  // @include media-breakpoint-down(xs)
 
 .currency__change
   &.down
@@ -47,12 +46,10 @@
 .flickity-button
   position: absolute;
   background: transparent;
-  // background: hsla(0, 0%, 100%, 0.75);
   border: none;
   color: $secondary;
 
   &:hover
-    // background: white;
     cursor: pointer;
 
   &:focus
@@ -71,8 +68,6 @@
 .flickity-button-icon
   fill: $secondary;
 
-
-/* ---- previous/next buttons ---- */
 
 .flickity-prev-next-button
   top: 50%;
