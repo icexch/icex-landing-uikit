@@ -157,6 +157,13 @@ $header-sticked-bg: $secondary !default
   @include media-breakpoint-down(xs)
     width: calc(100% - 3.5rem);
 
+.header__locale
+  position: relative
+  transition: all .2s ease
+
+  @include media-breakpoint-down(xs)
+    margin-left: 0
+
 
 .header__locale-wrap
   position: absolute
@@ -172,13 +179,6 @@ $header-sticked-bg: $secondary !default
   color: $header-locale-color
 
   z-index: 3
-
-.header__locale
-  position: relative
-  transition: all .2s ease
-
-  @include media-breakpoint-down(xs)
-    margin-left: 0
 
 
 .header__locale-selected
