@@ -5,7 +5,10 @@
         .row.justify-content-between.h-100
           .col-auto
             .footer__logo.mb-4
-              img(:src="footerData.logo.url")
+              img(
+                :src="footerData.logo.url"
+                :alt="footerData.logo.alt"
+              )
             .footer__email(v-html="footerData.email")
 
           .col-auto

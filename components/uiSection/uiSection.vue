@@ -1,6 +1,9 @@
 <template lang="pug">
 
-  .section__container(:class="sectionData.container.classes")
+  .section__container(
+    :class="sectionData.container.classes"
+    :id="sectionData.id"
+  )
 
     .section__label(
       v-if="sectionData.label.text"
