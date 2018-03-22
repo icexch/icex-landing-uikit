@@ -23,12 +23,11 @@
           small.text-muted(v-html="footerData.copyright")
 
       .col-12.col-lg-4.order-md-1.order-lg-2.bg-primary.p-4
-        ui-form(:formData="formData")
+        slot(name="footerForm")
 </template>
 
 <script>
   import uiSocials from '../uiSocials/uiSocials.vue'
-  import uiForm from '../uiForm/uiForm.vue'
   
   export default {
     name: 'uiFooter',
