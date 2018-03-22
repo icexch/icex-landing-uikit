@@ -27,11 +27,5 @@
     components: {
     },
 
-    mounted () {
-      setTimeout(() => {
-        this.$refs.flickity.resize();
-      }, 1000);
-    },
-
   }
 </script>

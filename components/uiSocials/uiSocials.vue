@@ -2,6 +2,7 @@
 
   .social__container.row.align-items-center.justify-content-center
     span.social__title(
+      v-if="title"
       :class=`multiline
         ? 'social__title--multiline'
         : ''`
@@ -29,42 +30,27 @@
       color: {
         type: String,
         required: true,
+        default: 'white',
       },
 
       multiline: {
         type: Boolean,
         required: true,
+        default: true,
       },
 
       title: {
         type: String,
-        required: true,
+        required: false,
+      },
+
+      socials: {
+        type: Object,
+        required: true
       }
     },
     data() {
       return {
-        socials: [
-          {
-            name: 'facebook',
-            url: 'https://www.facebook.com/ICEX.CH/',
-          },
-          {
-            name: 'vkontakte',
-            url: 'https://vk.com/icexch',
-          },
-          {
-            name: 'instagram',
-            url: 'https://www.instagram.com/icex.ch/',
-          },
-          {
-            name: 'telegram',
-            url: 'https://t.me/icexch',
-          },
-          {
-            name: 'twitter',
-            url: 'https://twitter.com/icex_ch',
-          },
-        ],
       };
     },
     components: {},
