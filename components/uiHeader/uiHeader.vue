@@ -22,7 +22,6 @@
           slot(name="headerContent")
 
       .header__nav.row.justify-content-between
-        //- .header__locale-container()
         .header__locale-container(v-click-outside="closeLocaleList")
           .header__locale-wrap( :class="{ 'header__locale-wrap--active' : showLocales }")
 
@@ -63,16 +62,15 @@
       .header__share
         ui-socials(
           color="white"
+          :socials="socials"
           :multiline="false"
           :title="headerData.share.title"
         )
 
-    //- .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollTo(1, false, 0)")
 
 </template>
 
 <script>
-  // import vClickOutside from 'v-click-outside'
   import uiSocials from '../uiSocials/uiSocials.vue'
 
   export default {
@@ -81,6 +79,10 @@
     props: {
       headerData: {
         type: Object,
+        required: true,
+      },
+      socials: {
+        type: Array,
         required: true,
       },
     },
@@ -94,10 +96,6 @@
     },
     components: {
       uiSocials,
-    },
-
-    directives: {
-      // clickOutside: vClickOutside.directive
     },
 
     methods: {
