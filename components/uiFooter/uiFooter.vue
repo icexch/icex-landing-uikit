@@ -6,7 +6,7 @@
           .col-auto
             .footer__logo.mb-4
               img(:src="footerData.logo.url")
-            .footer__email info@icex.ch
+            .footer__email(v-html="footerData.email")
 
           .col-auto
             .footer__social.d-flex
@@ -14,9 +14,10 @@
                 color="primary"
                 :multiline="true"
                 :title="footerData.share.title"
+                :socials="socials"
               )
         .h6.mb-auto
-          small.text-muted © 2017 ICEX | Holygate Investments
+          small.text-muted(v-html="footerData.copyright")
 
       .col-12.col-lg-4.order-md-1.order-lg-2.bg-primary.p-4
         ui-form(:formData="formData")
@@ -32,6 +33,10 @@
     props: {
       footerData: {
         type: Object,
+        required: true,
+      },
+      socials: {
+        type: Array,
         required: true,
       },
     },

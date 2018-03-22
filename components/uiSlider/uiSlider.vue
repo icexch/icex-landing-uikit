@@ -14,7 +14,10 @@
     props: {
       flickityOptions: {
         type: Object,
-        required: true,
+        required: false,
+        default() {
+          return {}
+        }
       },
     },
 

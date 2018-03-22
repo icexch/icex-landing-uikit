@@ -35,8 +35,7 @@
 
       multiline: {
         type: Boolean,
-        required: true,
-        default: true,
+        required: false,
       },
 
       title: {
@@ -45,9 +44,9 @@
       },
 
       socials: {
-        type: Object,
-        required: true
-      }
+        type: Array,
+        required: true,
+      },
     },
     data() {
       return {
