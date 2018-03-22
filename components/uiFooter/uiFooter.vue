@@ -54,7 +54,6 @@
       };
     },
     components: {
-      uiForm,
       uiSocials,
     },
     watch: {},
