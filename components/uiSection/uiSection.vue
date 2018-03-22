@@ -2,7 +2,7 @@
 
   .section__container(:class="sectionData.container.classes")
 
-    .section__label.h5(
+    .section__label(
       v-if="sectionData.label.text"
       v-html="sectionData.label.text"
       :class="sectionData.label.classes"
