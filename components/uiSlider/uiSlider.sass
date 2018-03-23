@@ -2,6 +2,8 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+$slider-btn-color: $secondary !default
+
 .flickity-enabled
   width: 100%
   overflow: hidden
@@ -47,7 +49,7 @@
   position: absolute;
   background: transparent;
   border: none;
-  color: $secondary;
+  color: $slide-btn-color;
 
   &:hover
     cursor: pointer;
@@ -66,7 +68,7 @@
 
 
 .flickity-button-icon
-  fill: $secondary;
+  fill: $slide-btn-color;
 
 
 .flickity-prev-next-button
