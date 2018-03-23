@@ -18,21 +18,17 @@ $input-text-color: white!default
     outline: none
     box-shadow: none
 
-textarea.custom-control
-  border: 0
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder
-  color: $input-text-color
+input,
+textarea
+  &::-webkit-input-placeholder
+    color: $input-text-color
 
-input::-moz-placeholder,
-textarea::-moz-placeholder
-  color: $input-text-color
+  &::-moz-placeholder
+    color: $input-text-color
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder
-  color: $input-text-color
+  &:-ms-input-placeholder
+    color: $input-text-color
 
-input:-moz-placeholder,
-textarea:-moz-placeholder
-  color: $input-text-color
+  &:-moz-placeholder
+    color: $input-text-color
