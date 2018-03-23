@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .social__container.row.align-items-center.justify-content-center
+  .social__container.d-flex.align-items-center.justify-content-center
     span.social__title(
       v-if="title"
       :class=`multiline
