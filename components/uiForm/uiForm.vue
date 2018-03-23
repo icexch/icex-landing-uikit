@@ -1,35 +1,61 @@
 <template lang="pug">
-  form.mb-2
-    .form-group
-      input(type="text" :placeholder="formData.placeholder.name").custom-control
+  .container-fluid
+    .row.align-items-stretch
+      .col-12.col-lg-8.order-md-2.order-lg-1.bg-info.p-4.pl-5.pb-5
+        .row.justify-content-between.h-100
+          .col-auto
+            .footer__logo.mb-4
+              img(
+                :src="footerData.logo.url"
+                :alt="footerData.logo.alt"
+              )
+            .footer__email(v-html="footerData.email")
 
-    .form-group
-      input(type="email" :placeholder="formData.placeholder.email").custom-control
+          .col-auto
+            .footer__social.d-flex
+              ui-socials(
+                color="primary"
+                :multiline="true"
+                :title="footerData.share.title"
+                :socials="socials"
+              )
+        .h6.mb-auto
+          small.text-muted(v-html="footerData.copyright")
 
-    .form-group.mb-4
-      textarea(:placeholder="formData.placeholder.msg" row="5").custom-control
-
-    .text-center
-      ui-btn(type="primary" text="Send")
+      .col-12.col-lg-4.order-md-1.order-lg-2.p-4(:class="footerData.form.class")
+        slot(name="footerForm")
 
 </template>
 
 <script>
-  import uiBtn from '../uiBtn/uiBtn.vue'
+  import uiSocials from '../uiSocials/uiSocials.vue'
+  
   export default {
-    name: 'boilerplate',
+    name: 'uiFooter',
     mixins: [],
     props: {
-      formData: {
+      footerData: {
         type: Object,
+        required: true,
+      },
+      socials: {
+        type: Array,
         required: true,
       },
     },
     data() {
-      return {};
+      return {
+        formData: {
+          placeholder: {
+            name: 'Name',
+            email: 'Email',
+            msg: 'Message',
+          },
+        },
+      };
     },
     components: {
-      uiBtn,
+      uiSocials,
     },
     watch: {},
     methods: {},
