@@ -2,7 +2,7 @@
 
   .section__container(
     :class="sectionData.container.classes"
-    :id="sectionData.id"
+    :id="`section-${sectionData.id}`"
   )
 
     .section__label(
