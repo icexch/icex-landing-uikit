@@ -1,7 +1,7 @@
 <template lang="pug">
   .container-fluid
     .row.align-items-stretch
-      .col-12.col-lg-8.order-md-2.order-lg-1.bg-info.p-4.pl-5.pb-5
+      .col-12.col-lg-8.order-md-2.order-lg-1.p-4.pl-5.pb-5(:class="footerData.class")
         .row.justify-content-between.h-100
           .col-auto
             .footer__logo.mb-4
@@ -14,7 +14,7 @@
           .col-auto
             .footer__social.d-flex
               ui-socials(
-                color="primary"
+                :color="footerData.share.color"
                 :multiline="true"
                 :title="footerData.share.title"
                 :socials="socials"
@@ -22,8 +22,9 @@
         .h6.mb-auto
           small.text-muted(v-html="footerData.copyright")
 
-      .col-12.col-lg-4.order-md-1.order-lg-2.bg-primary.p-4
+      .col-12.col-lg-4.order-md-1.order-lg-2.p-4(:class="footerData.form.class")
         slot(name="footerForm")
+
 </template>
 
 <script>
