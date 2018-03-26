@@ -19,7 +19,7 @@
                 :title="footerData.share.title"
                 :socials="socials"
               )
-        .h6.mb-auto
+        .h6.mb-auto.text-center.text-lg-left
           small.text-muted(v-html="footerData.copyright")
 
       .col-12.col-lg-4.order-1.order-lg-2.p-4(:class="footerData.form.class")
