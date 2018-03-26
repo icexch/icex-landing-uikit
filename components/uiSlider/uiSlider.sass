@@ -16,6 +16,9 @@ $slider-dot-border-color : white!default
 
 .currency__slide
   width: 16.67%
+  &:first-letter
+    text-decoration: uppercase
+
   @include media-breakpoint-down(lg)
     width: 25%
   @include media-breakpoint-down(md)

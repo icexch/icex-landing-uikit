@@ -3,7 +3,7 @@
   .header__container(:class="{ 'header__container--fixed': showMenu, 'header__container--sticked-menu': stickNav }")
     .container-fluid
 
-      .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
+      .header__info.justify-content-between.row(:class="{ 'header__info--sticked' : stickNav }")
         .header__burger-wrap.col-auto
 
           .header__burger-menu(
@@ -18,10 +18,13 @@
             :src="headerData.logo.url"
           )
 
-        .header__content.col-auto(v-if="!showMenu")
-          .header__label--wrap
-            .header__label(v-html="headerData.label")
+        .header__content.col-auto(v-if="!showMenu").d-none.d-sm-flex
+          .header__label
+            .header__label-text(v-html="headerData.label")
           slot(name="headerContent")
+
+        .header__label.d-sm-none
+          .header__label-text(v-html="headerData.label")
 
       .header__nav.row.justify-content-between
         .header__locale-container(v-click-outside="closeLocaleList")
