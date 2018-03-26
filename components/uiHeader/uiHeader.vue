@@ -19,6 +19,8 @@
           )
 
         .header__content.col-auto(v-if="!showMenu")
+          .header__label--wrap
+            .header__label(v-html="headerData.label")
           slot(name="headerContent")
 
       .header__nav.row.justify-content-between

@@ -13,11 +13,15 @@ $header-content-bg: $primary !default
 $header-content-color:  white !default
 
 $header-locale-bg: $secondary !default
+$header-locale-bg-active: $primary !default
 $header-locale-color: white !default
 
 $header-menu-bg: $primary !default
 $header-menu-color: white !default
 $header-menu-hover-color: $secondary !default
+
+$header-label-bg: $primary !default
+$header-label-color: white !default
 
 $header-sticked-bg: $secondary !default
 
@@ -43,6 +47,11 @@ $header-sticked-bg: $secondary !default
 .header__container--sticked-menu
   padding-top: 5.5rem
 
+.header__container--fixed,
+.header__container--sticked-menu
+  .header__locale-wrap,
+  .header__locale-selected
+    background-color: $header-locale-bg-active
 .header__info
   height: 4.5rem
   margin-bottom: $header-info-mb
@@ -154,6 +163,7 @@ $header-sticked-bg: $secondary !default
     z-index: 1
     transform: translate(-50%, 0)
 
+
 .header__content
   position: relative
   height: 4.5rem
@@ -167,6 +177,25 @@ $header-sticked-bg: $secondary !default
   color: $header-content-color
   @include media-breakpoint-down(xs)
     width: calc(100% - 3.5rem);
+
+
+.header__label
+  position: absolute
+  right: 1rem
+  top: 0rem
+  transform: rotate(-90deg)
+  transform-origin: right center
+  white-space: nowrap
+  color: $header-label-color
+
+.header__label--wrap
+  position: relative
+  width: 2rem
+  height: 100%
+  margin-right: 1rem
+  margin-left: -1rem
+  background-color: $header-label-bg
+
 
 .header__locale
   position: relative
