@@ -3,7 +3,7 @@
   .header__container(:class="{ 'header__container--fixed': showMenu, 'header__container--sticked-menu': stickNav }")
     .container-fluid
 
-      .header__info.justify-content-between.row(:class="{ 'header__info--sticked' : stickNav }")
+      .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
         .header__burger-wrap.col-auto
 
           .header__burger-menu(

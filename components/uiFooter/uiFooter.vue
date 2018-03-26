@@ -1,9 +1,9 @@
 <template lang="pug">
   .container-fluid
     .row.align-items-stretch
-      .col-12.col-lg-8.order-md-2.order-lg-1.p-4.pl-5.pb-5(:class="footerData.class")
-        .row.justify-content-between.h-100
-          .col-auto
+      .col-12.col-lg-8.order-2.order-lg-1.p-4.pl-lg-5.pb-lg-5(:class="footerData.class")
+        .row.justify-content-center.justify-content-sm-between.h-100
+          .col-auto.text-center
             .footer__logo.mb-4
               img(
                 :src="footerData.logo.url"
@@ -22,7 +22,7 @@
         .h6.mb-auto
           small.text-muted(v-html="footerData.copyright")
 
-      .col-12.col-lg-4.order-md-1.order-lg-2.p-4(:class="footerData.form.class")
+      .col-12.col-lg-4.order-1.order-lg-2.p-4(:class="footerData.form.class")
         slot(name="footerForm")
 
 </template>

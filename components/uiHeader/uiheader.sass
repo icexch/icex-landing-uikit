@@ -49,12 +49,17 @@ $header-sticked-bg: $secondary !default
 
 .header__container--fixed,
 .header__container--sticked-menu
+  overflow-y: scroll
   .header__locale-wrap,
   .header__locale-selected
     background-color: $header-locale-bg-active
+
+
 .header__info
   height: 4.5rem
   margin-bottom: $header-info-mb
+  @include media-breakpoint-down(xs)
+    justify-content: space-between
 
 .header__info--sticked
   position: fixed
@@ -264,14 +269,14 @@ $header-sticked-bg: $secondary !default
   min-height: calc(100% - 8rem)
   display: inline-block
 
+  @include media-breakpoint-down(xs)
+    min-height: 1px
+
   @include media-breakpoint-down(md)
     padding-left: 0
     max-height: 100%
     display: block
     text-align: center
-
-  @include media-breakpoint-down(xs)
-    padding-top: 2.5rem
 
 .header__menu-nav
   margin-bottom: 2vh
@@ -290,8 +295,6 @@ $header-sticked-bg: $secondary !default
     margin-bottom: 1.5vh
 
 .header__share
-  display: flex
-  align-items: center
   padding-left: 5rem
   width: 100%
 

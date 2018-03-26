@@ -1,12 +1,9 @@
 <template lang="pug">
 
-  .social__container
-    span.social__title(
-      v-if="title"
-      :class=`multiline
-        ? 'social__title--multiline'
-        : ''`
-    )
+  .social__container(:class=`multiline
+    ? 'social__container--multiline'
+    : ''`)
+    span.social__title(v-if="title")
       span(
         v-html="title"
         :class="`text-${color}`"
@@ -36,6 +33,7 @@
       multiline: {
         type: Boolean,
         required: false,
+        default: false,
       },
 
       title: {
