@@ -54,11 +54,6 @@
 
 
     template(v-if="showMenu")
-      .header__logo.header__logo--mobile
-        img(
-          :src="headerData.logo.url"
-          :alt="headerData.logo.alt"
-        )
 
       ul.header__menu.list-unstyled
         li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", @click="scrollTo(index, true, -70)")
