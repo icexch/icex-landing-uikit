@@ -17,6 +17,7 @@ $header-locale-color: white !default
 
 $header-menu-bg: $primary !default
 $header-menu-color: white !default
+$header-menu-hover-color: $secondary !default
 
 $header-sticked-bg: $secondary !default
 
@@ -33,12 +34,15 @@ $header-sticked-bg: $secondary !default
   left: 0
   top: 0
   z-index: 20
-  padding-bottom: 5rem
+  // padding-bottom: 5rem
   width: 100%
   height: 100%
   background: $header-menu-bg
   background-size: cover !important
   background-position: center center
+
+.header__container--sticked-menu
+  padding-top: 5.5rem
 
 .header__info
   height: 4.5rem
@@ -230,7 +234,8 @@ $header-sticked-bg: $secondary !default
 .header__menu
   padding-left: 4.75rem
   padding-top: 1rem
-  max-height: calc(100% - 7rem)
+  min-height: calc(100% - 8rem)
+  // max-height: calc(100% - 7rem)
   display: inline-block
 
   @include media-breakpoint-down(md)
@@ -243,11 +248,14 @@ $header-sticked-bg: $secondary !default
     padding-top: 2.5rem
 
 .header__menu-nav
-  margin-bottom: 1rem
-  font-weight: bold
+  margin-bottom: 2vh
+  font-weight: 700
   cursor: pointer
   a
+    text-decoration: none
     color: $header-menu-color
+    &:hover
+      color: $header-menu-hover-color
 
   @include breakpoint-downH(500px)
     margin-bottom: 0.5vh
@@ -255,18 +263,14 @@ $header-sticked-bg: $secondary !default
   @include breakpoint-downH(550px)
     margin-bottom: 1.5vh
 
-  &:hover
-    color: denim
-
-
 .header__share
   display: flex
   align-items: center
-  position: absolute
-  left: 0
+  // position: absolute
+  // left: 0
   padding-left: 5rem
   width: 100%
-  bottom: 1.5rem
+  // bottom: 1.5rem
 
   @include media-breakpoint-down(md)
     padding-top: 1rem
@@ -276,4 +280,3 @@ $header-sticked-bg: $secondary !default
   @include media-breakpoint-down(xs)
     padding-left: 0
     padding-top: 2.5rem
-

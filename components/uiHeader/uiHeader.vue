@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .header__container(:class="{ 'header__container--fixed': showMenu }")
+  .header__container(:class="{ 'header__container--fixed': showMenu, 'header__container--sticked-menu': stickNav }")
     .container-fluid
 
       .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
@@ -56,7 +56,7 @@
         )
 
       ul.header__menu.list-unstyled
-        li.header__menu-nav.h5(v-for="(nav, index) in headerData.menu", @click="scrollTo(index, true, -70)")
+        li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", @click="scrollTo(index, true, -70)")
           a(:href="`#section-${index}`") {{ nav }}
 
       .header__share
