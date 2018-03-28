@@ -1,8 +1,12 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 .section__container
   position: relative
 
 .section__cotnainer--fullheight
-  height: 100vh
+  min-height: 100vh
 
 .section__label
   position: absolute
@@ -11,3 +15,5 @@
   transform: rotate(-90deg)
   transform-origin: right top
   white-space: nowrap
+  @include media-breakpoint-down(md)
+    display: none
