@@ -128,7 +128,7 @@
       scrollTo (name, toggleMenu = true, index) {
         const sectionId = name.replace(' ', '_').toLowerCase();
         if (index) {
-          this.$scrollTo(`#${sectionId}`, 400, { offset: 30 })
+          this.$scrollTo(`#${sectionId}`, 400, { offset: -70 })
         } else {
           this.$scrollTo(`#${sectionId}`, 400, { offset: 0 })
         }
