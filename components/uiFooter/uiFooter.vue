@@ -5,10 +5,7 @@
         .row.justify-content-center.justify-content-sm-between.h-100
           .col-auto.text-center
             .footer__logo.mb-4
-              img(
-                :src="footerData.logo.url"
-                :alt="footerData.logo.alt"
-              )
+              ui-icon(:name="'logo'")
             a(:href="`mailto:${footerData.email}`" v-html="footerData.email").footer__email
 
           .col-auto
