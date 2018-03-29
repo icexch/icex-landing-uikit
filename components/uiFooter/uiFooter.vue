@@ -3,9 +3,9 @@
     .row.align-items-stretch
       .col-12.col-lg-8.order-2.order-lg-1.p-4.pl-lg-5.pb-lg-5(:class="footerData.class")
         .row.justify-content-center.justify-content-sm-between.h-100
-          .col-auto.text-center
+          .col-auto.text-center.mb-4.mb-sm-0
             .footer__logo.mb-4
-              ui-icon(:name="'logo'")
+              slot(name="footerLogo")
             a(:href="`mailto:${footerData.email}`" v-html="footerData.email").footer__email
 
           .col-auto

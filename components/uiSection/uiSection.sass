@@ -10,10 +10,24 @@
 
 .section__label
   position: absolute
-  right: calc(100% - 2.5rem)
+  right: calc(100% - 1rem)
   top: 4rem
   transform: rotate(-90deg)
   transform-origin: right top
   white-space: nowrap
   @include media-breakpoint-down(md)
     display: none
+
+.scrolldown
+  position: absolute
+  bottom: 1rem
+  left: 0
+  right: 0
+  margin: auto
+  width: 1rem
+  height: 1rem
+  border: 3px solid transparent
+  transform: rotate(45deg)
+  border-bottom-color: $secondary
+  border-right-color: $secondary
+  cursor: pointer

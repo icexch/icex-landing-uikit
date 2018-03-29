@@ -53,8 +53,8 @@
     template(v-if="showMenu")
 
       ul.header__menu.list-unstyled
-        li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", @click="scrollTo(index, true, -70)")
-          a(:href="`#section-${index}`") {{ nav }}
+        li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
+          a(href="" @click.prevent="scrollTo(nav, true, index)") {{ nav }}
 
       .header__share
         ui-socials(
@@ -125,9 +125,13 @@
        * @param  {Boolean} toggleMenu - hide menu after scoll to section if true
        * @param  {Number} - offset before section
        */
-      scrollTo (sec, toggleMenu = true, offset) {
-        this.$scrollTo('.section__container.__' + sec, 400, { offset: offset })
-
+      scrollTo (name, toggleMenu = true, index) {
+        const sectionId = name.replace(' ', '_').toLowerCase();
+        if (index) {
+          this.$scrollTo(`#${sectionId}`, 400, { offset: 30 })
+        } else {
+          this.$scrollTo(`#${sectionId}`, 400, { offset: 0 })
+        }
         if (toggleMenu) {
           this.toggleMenu()
         }
