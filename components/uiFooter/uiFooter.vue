@@ -9,7 +9,7 @@
                 :src="footerData.logo.url"
                 :alt="footerData.logo.alt"
               )
-            .footer__email(v-html="footerData.email")
+            a(:href="`mailto:${footerData.email}`" v-html="footerData.email").footer__email
 
           .col-auto
             .footer__social.d-flex
