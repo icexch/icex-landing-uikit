@@ -13,10 +13,7 @@
             span(v-for="i in 4")
 
         .header__logo.col-auto
-          img(
-            alt=""
-            :src="headerData.logo.url"
-          )
+          slot(name="headerLogo")
 
         .header__content.col-auto(v-if="!showMenu").d-none.d-sm-flex
           .header__label

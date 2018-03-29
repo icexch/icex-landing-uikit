@@ -6,6 +6,8 @@ $header-burger-bg: $primary !default
 $header-burger-color-default: $secondary !default
 $header-burger-color-active: white !default
 
+$header-logo: $primary !default
+$header-logo-mobile: white !default
 $header-logo-bg: transparent !default
 $header-info-mb: $spacer !default
 
@@ -17,6 +19,8 @@ $header-locale-bg-active: $primary !default
 $header-locale-color: white !default
 
 $header-menu-bg: $primary !default
+$header-menu-bg-mobile: $primary !default
+
 $header-menu-color: white !default
 $header-menu-hover-color: $secondary !default
 
@@ -43,6 +47,7 @@ $header-sticked-bg: $secondary !default
   background: $header-menu-bg
   background-size: cover !important
   background-position: center center
+  
 
 .header__container--sticked-menu
   padding-top: 5.5rem
@@ -60,6 +65,7 @@ $header-sticked-bg: $secondary !default
   margin-bottom: $header-info-mb
   @include media-breakpoint-down(xs)
     justify-content: space-between
+    background-color: $header-menu-bg-mobile
 
 .header__info--sticked
   position: fixed
@@ -142,13 +148,16 @@ $header-sticked-bg: $secondary !default
   display: flex
   width: 13rem
   align-items: center
-  background: $header-logo-bg
+  // background: $header-logo-bg
+  svg
+    width: 100%
+    fill: $header-logo
+    @include media-breakpoint-down(xs)
+      fill: $header-logo-mobile
   @include media-breakpoint-down(xs)
     padding: 0 .5rem
     width: 9rem
 
-  img
-    max-width: 100%
 
 .header__logo--mobile
   display: none
