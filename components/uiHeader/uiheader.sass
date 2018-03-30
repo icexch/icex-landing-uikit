@@ -3,16 +3,22 @@
 @import "~bootstrap/scss/mixins";
 
 $header-burger-bg: $primary !default
-$header-burger-color-default: $secondary !default
-$header-burger-color-active: white !default
+$header-burger-default: white !default
+$header-burger-active: white !default
 
 $header-logo: $primary !default
+$header-logo-active: white !default
+
 $header-logo-mobile: white !default
+$header-logo-mobile-active: white !default
+
 $header-logo-bg: transparent !default
+$header-logo-bg-active: transparent !default
+
 $header-info-mb: $spacer !default
 
 $header-content-bg: $primary !default
-$header-content-color:  white !default
+$header-content-color: white !default
 
 $header-locale-bg: $secondary !default
 $header-locale-bg-active: $primary !default
@@ -110,7 +116,7 @@ $header-sticked-bg: $secondary !default
     left: 0
     transform: rotate(0deg)
     transition: .25s ease-in-out
-    background-color: $header-burger-color-default
+    background-color: $header-burger-default
 
     &:nth-child(1)
       top: 0
@@ -125,7 +131,7 @@ $header-sticked-bg: $secondary !default
 
 .header__burger-menu--open
   span
-    background-color: $header-burger-color-active
+    background-color: $header-burger-active
     &:nth-child(1)
       top: 9px
       width: 0%

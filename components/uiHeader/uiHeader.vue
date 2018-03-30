@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .header__container(:class="{ 'header__container--fixed': showMenu, 'header__container--sticked-menu': stickNav }")
+  .header__container(:class="{ 'header__container--fixed': menuIsOpen, 'header__container--sticked-menu': stickNav }")
     .container-fluid
 
       .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
@@ -8,14 +8,14 @@
 
           .header__burger-menu(
             @click="toggleMenu"
-            :class="{ 'header__burger-menu--open' : showMenu }"
+            :class="{ 'header__burger-menu--open' : menuIsOpen }"
           )
             span(v-for="i in 4")
 
         .header__logo.col-auto
           slot(name="headerLogo")
 
-        .header__content.col-auto(v-if="!showMenu").d-none.d-sm-flex
+        .header__content.col-auto(v-if="!menuIsOpen").d-none.d-sm-flex
           .header__label
             .header__label-text(v-html="headerData.label")
           slot(name="headerContent")
@@ -46,11 +46,11 @@
               @click="toggleLocales($event)"
             )
 
-        template(v-if="!showMenu")
+        template(v-if="!menuIsOpen")
           slot(name="headerBtns")
 
 
-    template(v-if="showMenu")
+    template(v-if="menuIsOpen")
 
       ul.header__menu.list-unstyled
         li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
@@ -68,16 +68,18 @@
 </template>
 
 <script>
-  import uiSocials from '../uiSocials/uiSocials.vue'
+  import uiSocials from '../uiSocials/uiSocials.vue';
+  import { mapState, mapGetters } from 'vuex';
 
   export default {
-    name: 'LayoutHeader',
+    name: 'uiHeader',
 
     props: {
       headerData: {
         type: Object,
         required: true,
       },
+
       socials: {
         type: Array,
         required: true,
@@ -87,10 +89,10 @@
     data () {
       return {
         showLocales: false,
-        showMenu: false,
         stickNav: false
       }
     },
+
     components: {
       uiSocials,
     },
@@ -112,11 +114,9 @@
       show || hide menu and disable scroll under menu
        */
       toggleMenu () {
-        this.showMenu = !this.showMenu
-
-        document.documentElement.style.overflow = this.showMenu
-          ? 'hidden'
-          : 'initial'
+        this.menuIsOpen
+          ? this.$store.dispatch('common/setUserMenuStatus', false)
+          : this.$store.dispatch('common/setUserMenuStatus', true);
       },
 
       /**
@@ -144,6 +144,12 @@
           this.stickNav = window.scrollY > window.innerHeight;
         }
       }
+    },
+
+    computed: {
+      ...mapState({
+        menuIsOpen: state => state.common.menuIsOpen,
+      }),
     },
 
     created () {
