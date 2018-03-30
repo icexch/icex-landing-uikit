@@ -24,9 +24,6 @@ $header-locale-bg: $secondary !default
 $header-locale-bg-active: $primary !default
 $header-locale-color: white !default
 
-$header-menu-bg: $primary !default
-$header-menu-bg-mobile: $primary !default
-
 $header-menu-color: white !default
 $header-menu-hover-color: $secondary !default
 
@@ -34,6 +31,7 @@ $header-label-bg: $primary !default
 $header-label-color: white !default
 
 $header-sticked-bg: $secondary !default
+$header-sticked-bg-active: $secondary !default
 
 
 @mixin breakpoint-downH($point)
@@ -50,10 +48,10 @@ $header-sticked-bg: $secondary !default
   z-index: 20
   width: 100%
   height: 100%
-  background: $header-menu-bg
   background-size: cover !important
   background-position: center center
-  
+  .header__info--sticked::before
+    background-color: transparent
 
 .header__container--sticked-menu
   padding-top: 5.5rem
@@ -71,7 +69,6 @@ $header-sticked-bg: $secondary !default
   margin-bottom: $header-info-mb
   @include media-breakpoint-down(xs)
     justify-content: space-between
-    background-color: $header-menu-bg-mobile
 
 .header__info--sticked
   position: fixed
@@ -85,8 +82,6 @@ $header-sticked-bg: $secondary !default
     height: 100%
     background-color: $header-sticked-bg
     z-index: -1
-    @include media-breakpoint-down(xs)
-      background-color: $header-menu-bg-mobile
 
 .header__burger-wrap
   width: 56px
@@ -284,7 +279,7 @@ $header-sticked-bg: $secondary !default
 .header__menu
   padding-left: 4.75rem
   padding-top: 1rem
-  min-height: calc(100% - 8rem)
+  min-height: calc(100% - 14rem)
   display: inline-block
 
   @include media-breakpoint-down(xs)
