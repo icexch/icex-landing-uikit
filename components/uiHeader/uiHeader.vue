@@ -51,18 +51,18 @@
 
 
     template(v-if="menuIsOpen")
+      .header__wrap.pb-3
+        ul.header__menu.list-unstyled
+          li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
+            a(href="" @click.prevent="scrollTo(nav, true, index)") {{ nav }}
 
-      ul.header__menu.list-unstyled
-        li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
-          a(href="" @click.prevent="scrollTo(nav, true, index)") {{ nav }}
-
-      .header__share
-        ui-socials(
-          color="white"
-          :socials="socials"
-          :multiline="false"
-          :title="headerData.share.title"
-        )
+        .header__share
+          ui-socials(
+            color="white"
+            :socials="socials"
+            :multiline="false"
+            :title="headerData.share.title"
+          )
 
 
 </template>
