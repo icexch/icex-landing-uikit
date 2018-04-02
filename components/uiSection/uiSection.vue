@@ -36,7 +36,7 @@
         if(!this.sectionData.label.text) {
           return 'section_label_not_found';
         }
-        return this.sectionData.label.text.replace(' ', '_').toLowerCase();
+        return this.sectionData.label.text.replace(/ +/g, '_').toLowerCase();
       }
     },
     fetch() {},
