@@ -3,13 +3,13 @@
   .social__container(:class=`multiline
     ? 'social__container--multiline'
     : ''`)
-    span.social__title(v-if="title")
+    .social__title.mb-3(v-if="title")
       span(
         v-html="title"
         :class="`text-${color}`"
       )
 
-    .social__list
+    .social__list.mb-3
       a(
         target="_blank"
         v-for="social in socials"
