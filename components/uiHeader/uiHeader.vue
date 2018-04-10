@@ -15,7 +15,7 @@
         .header__logo.col-auto
           slot(name="headerLogo")
 
-        .header__content.col-auto(v-if="!menuIsOpen").d-none.d-sm-flex
+        .header__content.d-none.d-sm-flex(v-if="!menuIsOpen")
           .header__label
             .header__label-text(v-html="headerData.label")
           slot(name="headerContent")
