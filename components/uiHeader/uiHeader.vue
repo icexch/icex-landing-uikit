@@ -54,7 +54,7 @@
       .header__wrap.pb-3
         ul.header__menu.list-unstyled
           li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
-            a(href="" @click.prevent="scrollTo(nav, true, index)") {{ nav }}
+            a(href="" @click.prevent="scrollTo(index)") {{ nav }}
 
         .header__share
           ui-socials(
@@ -121,20 +121,11 @@
 
       /**
        * Scroll to section
-       * @param  {Number} sec - Section id 
-       * @param  {Boolean} toggleMenu - hide menu after scoll to section if true
-       * @param  {Number} - offset before section
+       * @param  {index} - Menu item index start from 0 because add +2 1 section not include
        */
-      scrollTo (name, toggleMenu = true, index) {
-        const sectionId = name.replace(' ', '_').toLowerCase();
-        if (index) {
-          this.$scrollTo(`#${sectionId}`, 400, { offset: -70 })
-        } else {
-          this.$scrollTo(`#${sectionId}`, 400, { offset: 0 })
-        }
-        if (toggleMenu) {
-          this.toggleMenu()
-        }
+      scrollTo (index) {
+        this.$scrollTo(`.section-${index * 1 + 2}`, 400, { offset: -70 })
+        this.toggleMenu();
       },
       /*
       Stick header menu to top when scroll more than 100vh
