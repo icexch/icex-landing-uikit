@@ -2,7 +2,7 @@
 
   .section__container(
     :class="[sectionData.container.classes, `section-${sectionData.id}`]"
-    :id="sectionName"
+    :id="sectionData.name"
   )
 
     .section__label(
@@ -31,14 +31,6 @@
     components: {},
     watch: {},
     methods: {},
-    computed: {
-      sectionName() {
-        if(!this.sectionData.label.text) {
-          return 'section_label_not_found';
-        }
-        return this.sectionData.label.text.replace(/ +/g, '_').toLowerCase();
-      }
-    },
     fetch() {},
     beforeCreate() {},
     created() {},
