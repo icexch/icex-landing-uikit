@@ -4,7 +4,7 @@
     .container-fluid
 
       .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
-        .header__burger-wrap.col-auto
+        .header__burger-wrap
 
           .header__burger-menu(
             @click="toggleMenu"
@@ -12,16 +12,20 @@
           )
             span(v-for="i in 4")
 
-        .header__logo.col-auto
+        .header__logo.d-none.d-sm-flex
           slot(name="headerLogo")
 
-        .header__content.d-none.d-sm-flex(v-if="!menuIsOpen")
-          .header__label
+        .header__content.d-flex.d-sm-none.justify-content-center.pr-5(v-if="menuIsOpen")
+          .header__logo.pr-4.pl-0
+            slot(name="headerLogo")
+
+        .header__content(v-if="!menuIsOpen")
+          .header__label.d-none.d-sm-flex
             .header__label-text(v-html="headerData.label")
           slot(name="headerContent")
 
-        .header__label.d-sm-none
-          .header__label-text(v-html="headerData.label")
+          .header__label.d-sm-none
+            .header__label-text(v-html="headerData.label")
 
       .header__nav.row.justify-content-between
         .header__locale-container(v-click-outside="closeLocaleList")
