@@ -3,14 +3,14 @@
     .row.align-items-stretch
       .col-12.col-lg-8.order-2.order-lg-1.p-4.pl-lg-5.pb-lg-5(:class="footerData.class")
         .row.justify-content-center.justify-content-sm-between.h-100
-          .col-auto.text-left.mb-4.mb-sm-0
+          .col-12.col-sm-auto.text-sm-left.text-center.mb-4.mb-sm-0
             .footer__logo.mb-4
               slot(name="footerLogo")
             .mb-2.text-muted(v-html="footerData.emailTitle")
             a(:href="`mailto:${footerData.email}`" v-html="footerData.email").footer__email
 
-          .col-auto
-            .footer__social.d-flex
+          .col-12.col-sm-auto
+            .footer__social.d-flex.justify-content-center.justify-content-sm-right
               ui-socials(
                 :color="footerData.share.color"
                 :multiline="true"
