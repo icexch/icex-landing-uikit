@@ -68,6 +68,7 @@
             :title="headerData.share.title"
           )
 
+    .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollToTop()")
 
 </template>
 
@@ -138,7 +139,14 @@
         if (process.browser) {
           this.stickNav = window.scrollY > window.innerHeight;
         }
-      }
+      },
+      /**
+       * Scroll to first section
+       * @return {Scroll event}
+       */
+      scrollToTop() {
+        this.$scrollTo('.section-1', 400);
+      },
     },
 
     computed: {
