@@ -27,7 +27,7 @@
           .header__label.d-sm-none
             .header__label-text(v-html="headerData.label")
 
-      .header__nav.row.justify-content-between
+      .header__nav
         .header__locale-container(v-click-outside="closeLocaleList")
           .header__locale-wrap( :class="{ 'header__locale-wrap--active' : showLocales }")
 
@@ -49,10 +49,6 @@
               v-html="headerData.locale.list[headerData.locale.active].short"
               @click="toggleLocales($event)"
             )
-
-        template(v-if="!menuIsOpen")
-          slot(name="headerBtns")
-
 
     template(v-if="menuIsOpen")
       .header__wrap.pb-3
