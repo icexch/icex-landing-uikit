@@ -67,10 +67,15 @@ $header-sticked-mobile-bg: white !default
   .header__locale-selected
     background-color: $header-locale-bg-active
 
+.header__nav
+  position: absolute
+  left: 0
+  top: 5rem
+  z-index: 2
 
 .header__info
   height: 4.5rem
-  margin-bottom: $header-info-mb
+  // margin-bottom: $header-info-mb
 
   @include media-breakpoint-down(xs)
     justify-content: space-between
