@@ -46,6 +46,6 @@
   };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
   // @import "./uiSection.sass";
 </style>

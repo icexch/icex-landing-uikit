@@ -6,15 +6,11 @@ import uiSection from './components/uiSection';
 import uiSlider from './components/uiSlider';
 import uiSocials from './components/uiSocials';
 
-const uiKit = {
-  install(Vue) {
-    Vue.component('uiFooter', uiFooter);
-    Vue.component('uiIcon', uiIcon);
-    Vue.component('uiHeader', uiHeader);
-    Vue.component('uiSection', uiSection);
-    Vue.component('uiSlider', uiSlider);
-    Vue.component('uiSocials', uiSocials);
-  }
+export {
+  uiFooter,
+  uiIcon,
+  uiHeader,
+  uiSection,
+  uiSlider,
+  uiSocials,
 };
-
-export default uiKit;

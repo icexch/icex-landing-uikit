@@ -14,3 +14,7 @@
     },
   };
 </script>
+
+<style lang="sass" scoped>
+  // @import "./uiIcon.sass";
+</style>

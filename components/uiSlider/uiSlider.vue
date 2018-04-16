@@ -32,3 +32,7 @@
 
   }
 </script>
+
+<style lang="sass" scoped>
+  // @import "./uiSlider.sass";
+</style>

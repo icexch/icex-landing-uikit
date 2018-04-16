@@ -70,5 +70,5 @@
 </script>
 
 <style lang="sass">
-
+  // @import "./uiSocials.sass"
 </style>
