@@ -4,10 +4,9 @@
     .container-fluid
 
       .header__info.row(:class="{ 'header__info--sticked' : stickNav }")
-        .header__burger-wrap
+        .header__burger-wrap(@click="toggleMenu")
 
           .header__burger-menu(
-            @click="toggleMenu"
             :class="{ 'header__burger-menu--open' : menuIsOpen }"
           )
             span(v-for="i in 4")
@@ -125,7 +124,7 @@
        * @param  {index} - Menu item index start from 0 because add +2 1 section not include
        */
       scrollTo (index) {
-        this.$scrollTo(`.section-${index * 1 + 2}`, 400, { offset: -70 })
+        this.$scrollTo(`.section-${index * 1 + 2}`, 400, { offset: -72 })
         this.toggleMenu();
       },
       /*
