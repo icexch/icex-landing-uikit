@@ -72,7 +72,7 @@
   import { mapState, mapGetters } from 'vuex';
 
   export default {
-    name: 'uiHeader',
+    name: 'ui-header',
 
     props: {
       headerData: {

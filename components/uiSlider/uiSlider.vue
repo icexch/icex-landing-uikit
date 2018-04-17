@@ -9,7 +9,7 @@
 <script>
   export default {
 
-    name: 'uiSlider',
+    name: 'ui-slider',
 
     props: {
       flickityOptions: {

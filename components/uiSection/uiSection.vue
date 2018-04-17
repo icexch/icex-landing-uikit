@@ -17,7 +17,7 @@
 
 <script>
   export default {
-    name: 'boilerplate',
+    name: 'ui-section',
     mixins: [],
     props: {
       sectionData: {

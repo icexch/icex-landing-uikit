@@ -21,7 +21,7 @@
 
 <script>
   export default {
-    name: 'uiSocials',
+    name: 'ui-socials',
     mixins: [],
     props: {
       color: {

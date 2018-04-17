@@ -29,7 +29,7 @@
   import uiSocials from '../uiSocials/uiSocials.vue'
   
   export default {
-    name: 'uiFooter',
+    name: 'ui-footer',
     mixins: [],
     props: {
       footerData: {
