@@ -62,13 +62,11 @@ $header-sticked-mobile-bg: white !default
   width: 100%
   overflow-y: auto
   display: flex
-  flex-flow: column wrap
+  flex: 1
+  flex-flow: column nowrap
   justify-content: space-between
   @include media-breakpoint-down(md)
     padding: 0 2.5rem
-  @include media-breakpoint-height-down(500px)
-    justify-content: center
-    align-content: space-around
 
 .header__container--fixed
   .header__locale-wrap,
@@ -272,14 +270,13 @@ $header-sticked-mobile-bg: white !default
   list-style: none
   padding-left: 4.75rem
   padding-top: 1rem
-  min-height: calc(100% - 14rem)
   display: inline-block
 
   @include media-breakpoint-down(md)
     padding-left: 0
-    max-height: 100%
     display: block
     text-align: center
+    margin: auto
 
 .header__menu-nav
   margin-bottom: 2vh
@@ -303,7 +300,6 @@ $header-sticked-mobile-bg: white !default
   @include media-breakpoint-down(md)
     padding-top: 1rem
     padding-left: 0
-    flex-flow: row wrap
 
   @include media-breakpoint-down(xs)
     padding-left: 0
