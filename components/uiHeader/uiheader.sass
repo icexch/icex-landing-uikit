@@ -35,8 +35,8 @@ $header-sticked-bg: white !default
 $header-sticked-mobile-bg: white !default
 
 
-@mixin breakpoint-downH($point)
-  @media (min-height: $point)
+@mixin media-breakpoint-height-down($point)
+  @media (max-height: $point)
     @content
 
 .header__container
@@ -58,9 +58,17 @@ $header-sticked-mobile-bg: white !default
   padding-top: 4.5rem
 
 .header__wrap
-  height: calc(100vh - 8rem)
+  height: calc(100vh - 4rem)
   width: 100%
-  overflow-y: scroll
+  overflow-y: auto
+  display: flex
+  flex-flow: column wrap
+  justify-content: space-between
+  @include media-breakpoint-down(md)
+    padding: 0 2.5rem
+  @include media-breakpoint-height-down(500px)
+    justify-content: center
+    align-content: space-around
 
 .header__container--fixed
   .header__locale-wrap,
@@ -287,8 +295,8 @@ $header-sticked-mobile-bg: white !default
   min-height: calc(100% - 14rem)
   display: inline-block
 
-  @include media-breakpoint-down(xs)
-    min-height: 1px
+  // @include media-breakpoint-down(xs)
+    // min-height: 1px
 
   @include media-breakpoint-down(md)
     padding-left: 0
@@ -306,19 +314,18 @@ $header-sticked-mobile-bg: white !default
     &:hover
       color: $header-menu-hover-color
 
-  @include breakpoint-downH(500px)
+  @include media-breakpoint-height-down(500px)
     margin-bottom: 0.5vh
 
-  @include breakpoint-downH(550px)
+  @include media-breakpoint-height-down(550px)
     margin-bottom: 1.5vh
 
 .header__share
   padding-left: 5rem
-  width: 100%
 
   @include media-breakpoint-down(md)
     padding-top: 1rem
-    padding-left: 1rem
+    padding-left: 0
     flex-flow: row wrap
 
   @include media-breakpoint-down(xs)

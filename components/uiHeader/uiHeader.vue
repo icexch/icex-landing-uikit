@@ -12,11 +12,11 @@
             span(v-for="i in 4")
 
         .header__logo.d-none.d-sm-flex
-          slot(name="headerLogo")
+          slot(name="headerLogoMobile")
 
         .header__content.d-flex.d-sm-none.justify-content-center.pr-5(v-if="menuIsOpen")
           .header__logo.pr-4.pl-0
-            slot(name="headerLogo")
+            slot(name="headerLogoDesktop")
 
         .header__content(v-if="!menuIsOpen")
           .header__label.d-none.d-sm-flex
@@ -164,6 +164,6 @@
   }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   // @import "./uiHeader.sass";
 </style>
