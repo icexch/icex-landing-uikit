@@ -18,34 +18,11 @@
 <script>
   export default {
     name: 'ui-section',
-    mixins: [],
     props: {
       sectionData: {
         type: Object,
         required: true,
       },
     },
-    data() {
-      return {};
-    },
-    components: {},
-    watch: {},
-    methods: {},
-    fetch() {},
-    beforeCreate() {},
-    created() {},
-    beforeMount() {},
-    mounted() {},
-    beforeUpdate() {},
-    updated() {},
-    activated() {},
-    deactivated() {},
-    beforeDestroy() {},
-    destroyed() {},
-    errorCaptured() {},
   };
 </script>
-
-<style lang="sass" scoped>
-  // @import "./uiSection.sass";
-</style>

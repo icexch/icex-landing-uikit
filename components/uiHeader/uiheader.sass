@@ -83,7 +83,6 @@ $header-sticked-mobile-bg: white !default
 
 .header__info
   height: 4.5rem
-  // margin-bottom: $header-info-mb
 
   @include media-breakpoint-down(xs)
     justify-content: space-between
@@ -178,21 +177,6 @@ $header-sticked-mobile-bg: white !default
     width: 9rem
 
 
-.header__logo--mobile
-  display: none
-
-  @include media-breakpoint-down(xs)
-    display: block
-    position: absolute
-    top: 4.75rem
-    left: 50%
-    margin: 0
-    padding: 0
-    width: 7rem
-    z-index: 1
-    transform: translate(-50%, 0)
-
-
 .header__content
   position: relative
   height: 4.5rem
@@ -264,6 +248,7 @@ $header-sticked-mobile-bg: white !default
   color: $header-locale-color
 
 .header__locale-list
+  list-style: none
   padding-left: 1.25rem
 
 .header__locale-list-item
@@ -282,21 +267,13 @@ $header-sticked-mobile-bg: white !default
   transform: translateX(10rem)
 
 
-.header__btns
-  padding-right: calc((100vw - 1200px)/2 + 1rem)
-
-  @include media-breakpoint-down(lg)
-    padding-right: 1rem
-
 
 .header__menu
+  list-style: none
   padding-left: 4.75rem
   padding-top: 1rem
   min-height: calc(100% - 14rem)
   display: inline-block
-
-  // @include media-breakpoint-down(xs)
-    // min-height: 1px
 
   @include media-breakpoint-down(md)
     padding-left: 0

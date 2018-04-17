@@ -29,10 +29,9 @@
 
 <script>
   import uiSocials from '../uiSocials/uiSocials.vue'
-  
+
   export default {
     name: 'ui-footer',
-    mixins: [],
     props: {
       footerData: {
         type: Object,
@@ -57,24 +56,5 @@
     components: {
       uiSocials,
     },
-    watch: {},
-    methods: {},
-    computed: {},
-    fetch() {},
-    beforeCreate() {},
-    created() {},
-    beforeMount() {},
-    mounted() {},
-    beforeUpdate() {},
-    updated() {},
-    activated() {},
-    deactivated() {},
-    beforeDestroy() {},
-    destroyed() {},
-    errorCaptured() {},
   };
 </script>
-
-<style lang="sass" scoped>
-  // @import "./uiForm.sass";
-</style>

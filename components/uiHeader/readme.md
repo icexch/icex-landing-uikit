@@ -1,21 +1,37 @@
 # Variable with default values:
 
 ```
-$header-burger-bg:              $primary !default
-$header-burger-color-default:   $secondary !default
-$header-burger-color-active:    white !default
+$header-burger-bg: $primary !default
+$header-burger-default: white !default
+$header-burger-active: white !default
 
-$header-logo-bg:                transparent!default
-$header-info-mb:                $spacer !default
+$header-logo: $primary !default
+$header-logo-active: white !default
 
-$header-content-bg:             $primary !default
-$header-content-color:          white !default
+$header-logo-mobile: white !default
+$header-logo-mobile-active: white !default
 
-$header-locale-bg:              $secondary !default
-$header-locale-color:           white !default
+$header-logo-bg: transparent !default
+$header-logo-bg-active: transparent !default
 
-$header-menu-bg:                $primary !default
-$header-menu-color:             white !default
+$header-info-mb: $spacer !default
+
+$header-content-bg: $primary !default
+$header-content-color: white !default
+
+$header-locale-bg: $secondary !default
+$header-locale-bg-active: $primary !default
+$header-locale-color: white !default
+
+$header-menu-color: white !default
+$header-menu-hover-color: $secondary !default
+
+$header-label-bg: $primary !default
+$header-label-color: white !default
+
+$header-info-mobile-bg: $secondary !default
+$header-sticked-bg: white !default
+$header-sticked-mobile-bg: white !default
 ```
 
 ### To change style

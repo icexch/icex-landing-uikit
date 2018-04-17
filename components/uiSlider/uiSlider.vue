@@ -16,23 +16,15 @@
         type: Object,
         required: false,
         default() {
-          return {}
-        }
+          return {};
+        },
       },
     },
 
-    data () {
+    data() {
       return {
         sliderList: {},
-      }
+      };
     },
-
-    components: {
-    },
-
-  }
+  };
 </script>
-
-<style lang="sass" scoped>
-  // @import "./uiSlider.sass";
-</style>
