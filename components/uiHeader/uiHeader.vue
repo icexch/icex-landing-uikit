@@ -130,7 +130,7 @@
        */
       scrollTo(index) {
         this.toggleMenu();
-        this.$scrollTo(`.section-${index}`, 400);
+        this.$scrollTo(`.section-${index}`, 400, { offset: -70 });
       },
       /*
       Stick header menu to top when scroll more than 100vh
