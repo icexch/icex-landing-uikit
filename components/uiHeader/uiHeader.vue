@@ -54,8 +54,11 @@
     template(v-if="menuIsOpen")
       .header__wrap.pb-3
         ul.header__menu
-          li.header__menu-nav.h4(v-for="(nav, index) in headerData.menu", )
-            a(href="" @click.prevent="scrollTo(index)") {{ nav }}
+          li.header__menu-nav.h4(v-for="nav in headerData.menu")
+            a(
+              href="#"
+              @click.prevent="scrollTo(nav.index)"
+            ) {{ nav.label }}
 
         .header__share
           ui-socials(
@@ -65,7 +68,7 @@
             :title="headerData.share.title"
           )
 
-    .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", @click="scrollToTop()")
+    .scroller(:style="{ 'visibility' : stickNav ? 'visible' : 'hidden' }", v-scroll-to="'.section-1, 0'")
 
 </template>
 
@@ -123,11 +126,11 @@
 
       /**
        * Scroll to section
-       * @param  {index} - Menu item index start from 0 because add +2 1 section not include
+       * @param  {index} - Menu item index
        */
       scrollTo(index) {
-        this.$scrollTo(`.section-${(index * 1) + 2}`, 400, { offset: -72 });
         this.toggleMenu();
+        this.$scrollTo(`.section-${index}`, 400);
       },
       /*
       Stick header menu to top when scroll more than 100vh
@@ -136,13 +139,6 @@
         if (process.browser) {
           this.stickNav = window.scrollY > window.innerHeight;
         }
-      },
-      /**
-       * Scroll to first section
-       * @return {Scroll event}
-       */
-      scrollToTop() {
-        this.$scrollTo('.section-1', 400);
       },
     },
 
