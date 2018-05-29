@@ -12,17 +12,26 @@
           .col-12.col-sm-auto.text-sm-left.text-center.mb-4.mb-sm-0
             .d-flex.flex-column
               h3(v-html="footerData.ourProducts")
-              a.footer__email.footer__email--big(:href="'https://app.icex.ch'") ICEX APP
-              a.footer__email.footer__email--big(:href="'https://wallet.icex.ch'") ICEX WALLET
-              a.footer__email.footer__email--big(:href="'https://data.icex.ch'") ICEX DATA
+              a.footer__email.footer__email--big(
+              v-if="footerData.showLinkApp",
+              :href="'https://icex.ch'",
+              ) ICEX APP
+              a.footer__email.footer__email--big(
+              v-if="footerData.showLinkWallet",
+              :href="'https://wallet.icex.ch'",
+              ) ICEX WALLET
+              a.footer__email.footer__email--big(
+              v-if="footerData.showLinkData",
+              :href="'https://data.icex.ch'",
+              ) ICEX DATA
 
           .col-12.col-sm-auto
             .footer__social.d-flex.justify-content-center.justify-content-sm-right
               ui-socials(
-                :color="footerData.share.color"
-                :multiline="true"
-                :title="footerData.share.title"
-                :socials="socials"
+              :color="footerData.share.color"
+              :multiline="true"
+              :title="footerData.share.title"
+              :socials="socials"
               )
         .h6.mb-auto.text-center.text-lg-left
           small.text-muted(v-html="footerData.copyright")
@@ -33,33 +42,33 @@
 </template>
 
 <script>
-  import uiSocials from '../uiSocials/uiSocials.vue';
+import uiSocials from '../uiSocials/uiSocials.vue';
 
-  export default {
-    name: 'ui-footer',
-    props: {
-      footerData: {
-        type: Object,
-        required: true,
-      },
-      socials: {
-        type: Array,
-        required: true,
-      },
+export default {
+  name: 'ui-footer',
+  props: {
+    footerData: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
-        formData: {
-          placeholder: {
-            name: 'Name',
-            email: 'Email',
-            msg: 'Message',
-          },
+    socials: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      formData: {
+        placeholder: {
+          name: 'Name',
+          email: 'Email',
+          msg: 'Message',
         },
-      };
-    },
-    components: {
-      uiSocials,
-    },
-  };
+      },
+    };
+  },
+  components: {
+    uiSocials,
+  },
+};
 </script>
