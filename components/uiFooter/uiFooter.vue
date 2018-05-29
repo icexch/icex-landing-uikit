@@ -9,6 +9,13 @@
             .mb-2.text-muted(v-html="footerData.emailTitle")
             a(:href="`mailto:${footerData.email}`" v-html="footerData.email").footer__email
 
+          .col-12.col-sm-auto.text-sm-left.text-center.mb-4.mb-sm-0
+            .d-flex.flex-column
+              h3(v-html="footerData.ourProducts")
+              a.footer__email.footer__email--big(:href="'https://app.icex.ch'") ICEX APP
+              a.footer__email.footer__email--big(:href="'https://wallet.icex.ch'") ICEX WALLET
+              a.footer__email.footer__email--big(:href="'https://data.icex.ch'") ICEX DATA
+
           .col-12.col-sm-auto
             .footer__social.d-flex.justify-content-center.justify-content-sm-right
               ui-socials(
