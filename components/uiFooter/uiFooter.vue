@@ -14,15 +14,15 @@
               span.text-primary(v-html="footerData.ourProducts")
               a.footer__email.footer__email--big(
               v-if="footerData.showLinkApp",
-              :href="`'https://icex.ch/${footerData.hrefLang}'`",
+              :href="`https://icex.ch/${footerData.hrefLang}`",
               ) ICEX APP
               a.footer__email.footer__email--big(
               v-if="footerData.showLinkWallet",
-              :href="`'https://wallet.icex.ch/${footerData.hrefLang}'`",
+              :href="`https://wallet.icex.ch/${footerData.hrefLang}`",
               ) ICEX WALLET
               a.footer__email.footer__email--big(
               v-if="footerData.showLinkData",
-              :href="`'https://data.icex.ch/${footerData.hrefLang}'`",
+              :href="`https://data.icex.ch/${footerData.hrefLang}`",
               ) ICEX DATA
 
           .col-12.col-sm-auto
