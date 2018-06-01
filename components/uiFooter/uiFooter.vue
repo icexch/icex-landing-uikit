@@ -15,7 +15,7 @@
               a.footer__email.footer__email--big(
               v-if="footerData.showLinkApp",
               :href="`https://icex.ch/${footerData.hrefLang}`",
-              ) ICEX APP
+              ) ICEX INDEX
               a.footer__email.footer__email--big(
               v-if="footerData.showLinkWallet",
               :href="`https://wallet.icex.ch/${footerData.hrefLang}`",
